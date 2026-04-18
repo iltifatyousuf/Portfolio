@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Iltifat Nath — Front-End Developer | React | TypeScript | UI/UX Engineering. 4+ years building scalable, high-performance web applications with pixel-perfect UI/UX.">
+    <meta name="author" content="Iltifat Nath">
+    <meta name="keywords" content="Front-End Developer, React, TypeScript, JavaScript ES6+, Next.js, Tailwind CSS, Three.js, Framer Motion, UI/UX Engineering, Responsive Design">
+    <meta property="og:title" content="Iltifat Nath — Front-End Developer | React | TypeScript">
+    <meta property="og:description" content="Front-End Developer with 4+ years of experience building scalable, high-performance web applications using React, TypeScript, and modern CSS frameworks.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Iltifat Nath — Front-End Developer | React | TypeScript</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Background Effects -->
+<div class="bg-mesh">
+    <div class="bg-orb"></div>
+    <div class="bg-orb"></div>
+    <div class="bg-orb"></div>
+</div>
+<div class="bg-grid"></div>
+
+<!-- Scroll Progress -->
+<div class="scroll-progress"></div>
+
+<!-- Scroll To Top -->
+<button class="scroll-top" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+
+<!-- Navigation -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+        <div class="logo">iltifat.dev</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact" class="nav-cta"><i class="fas fa-paper-plane"></i> Contact</a></li>
+        </ul>
+        <div class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Overlay & Menu -->
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact" class="nav-cta">Contact Me</a></li>
+    </ul>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+    <div class="hero-split">
+        <div class="hero-content">
+            <div class="hero-badge"><span class="pulse-dot"></span> Open to Opportunities</div>
+            <div class="holo-badge" id="holoBadge">
+                <div class="holo-badge-inner">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 100" class="holo-svg">
+                        <defs>
+                            <filter id="holoBlur"><feGaussianBlur in="SourceGraphic" stdDeviation="4"/></filter>
+                            <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="rgba(56,189,248,0.4)"/>
+                                <stop offset="50%" stop-color="rgba(168,85,247,0.4)"/>
+                                <stop offset="100%" stop-color="rgba(52,211,153,0.4)"/>
+                            </linearGradient>
+                            <mask id="holoMask"><rect width="460" height="100" fill="white" rx="16"/></mask>
+                        </defs>
+                        <!-- Card background -->
+                        <rect width="460" height="100" rx="16" fill="rgba(10,10,14,0.85)"/>
+                        <!-- Thin border -->
+                        <rect x="1.5" y="1.5" width="457" height="97" rx="15" fill="none" stroke="url(#borderGrad)" stroke-width="1.5"/>
+                        <!-- Inner border -->
+                        <rect x="6" y="6" width="448" height="88" rx="12" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+                        <!-- Name text -->
+                        <text font-family="Inter, system-ui, sans-serif" font-size="34" font-weight="800" fill="#f4f4f5" x="230" y="45" text-anchor="middle" letter-spacing="-1">ILTIFAT NATH</text>
+                        <!-- Role subtitle -->
+                        <text font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600" fill="rgba(56,189,248,0.8)" x="230" y="72" text-anchor="middle" letter-spacing="4" text-transform="uppercase">
+                            <tspan id="holoBadgeRole">FRONT-END DEVELOPER</tspan>
+                        </text>
+                        <!-- Holographic overlay layers -->
+                        <g style="mix-blend-mode:overlay" mask="url(#holoMask)" class="holo-overlay">
+                            <polygon points="0,0 460,100 460,0 0,100" fill="hsl(358,100%,62%)" filter="url(#holoBlur)" opacity="0.35" class="holo-layer" data-speed="1"/>
+                            <polygon points="0,0 460,100 460,0 0,100" fill="hsl(30,100%,50%)" filter="url(#holoBlur)" opacity="0.35" class="holo-layer" data-speed="1.2"/>
+                            <polygon points="0,0 460,100 460,0 0,100" fill="hsl(60,100%,50%)" filter="url(#holoBlur)" opacity="0.3" class="holo-layer" data-speed="1.4"/>
+                            <polygon points="0,0 460,100 460,0 0,100" fill="hsl(150,100%,50%)" filter="url(#holoBlur)" opacity="0.3" class="holo-layer" data-speed="1.6"/>
+                            <polygon points="0,0 460,100 460,0 0,100" fill="hsl(233,85%,47%)" filter="url(#holoBlur)" opacity="0.3" class="holo-layer" data-speed="1.8"/>
+                            <polygon points="0,0 460,100 460,0 0,100" fill="hsl(271,85%,47%)" filter="url(#holoBlur)" opacity="0.28" class="holo-layer" data-speed="2.0"/>
+                            <polygon points="0,0 460,100 460,0 0,100" fill="hsl(310,60%,45%)" filter="url(#holoBlur)" opacity="0.2" class="holo-layer" data-speed="2.2"/>
+                            <polygon points="0,0 460,100 460,0 0,100" fill="white" filter="url(#holoBlur)" opacity="0.15" class="holo-layer" data-speed="2.5"/>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+            <p class="hero-roles">
+                <span class="role-highlight" id="typedRole">Front-End Developer</span><span style="color:var(--accent-2)">|</span>
+            </p>
+            <p class="hero-description">
+                Front-End Developer with 4+ years of hands-on experience designing and building scalable, high-performance web applications using React, TypeScript, JavaScript (ES6+), and modern CSS frameworks. Specialized in pixel-perfect UI/UX with engaging micro-interactions, fast load times, and accessibility standards.
+            </p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-value" data-suffix="+">4</span>
+                    <span class="stat-label">Years Exp.</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value" data-suffix="+">15</span>
+                    <span class="stat-label">Projects</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value" data-suffix="+">3</span>
+                    <span class="stat-label">Companies</span>
+                </div>
+            </div>
+            <div class="hero-ctas">
+                <a href="#projects" class="btn-primary"><i class="fas fa-briefcase"></i> View My Work</a>
+                <a href="#contact" class="btn-secondary"><i class="fas fa-envelope"></i> Get In Touch</a>
+            </div>
+        </div>
+        <div class="hero-globe">
+            <canvas id="wireframeGlobe"></canvas>
+        </div>
+    </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="section">
+    <div class="section-header">
+        <span class="section-label reveal">Who I Am</span>
+        <h2 class="section-title reveal">About Me</h2>
+        <p class="section-subtitle reveal">Building performant, accessible, and beautiful web experiences</p>
+    </div>
+    <div class="about-grid">
+        <div class="about-avatar reveal">
+            <i class="fas fa-laptop-code" style="color: var(--accent-2);"></i>
+        </div>
+        <div class="glass-card reveal">
+            <p class="about-text">Front-End Developer with 4+ years of hands-on experience designing and building scalable, high-performance web applications and responsive mobile-first solutions using React, TypeScript, JavaScript (ES6+), and modern CSS frameworks.</p>
+            <p class="about-text">Specialized in creating pixel-perfect UI/UX designs with intuitive interfaces, engaging micro-interactions, and the latest CSS animations. Proven expertise in transforming complex data requirements into interactive dashboards and dynamic components with fast load times, high responsiveness, and WCAG accessibility standards.</p>
+            <p class="about-text">From building React-based dashboards at SKIE, to developing AI-powered front-end interfaces at NIELIT, to shipping 8+ responsive client websites at Apexure — I deliver production-ready code that performs at scale.</p>
+            <div class="about-highlights">
+                <div class="highlight">
+                    <div class="highlight-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div><h4>BSc IT (Final Year)</h4><p>Cluster University</p></div>
+                </div>
+                <div class="highlight">
+                    <div class="highlight-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div><h4>Location</h4><p>Jammu & Kashmir, India</p></div>
+                </div>
+                <div class="highlight">
+                    <div class="highlight-icon"><i class="fab fa-react"></i></div>
+                    <div><h4>Specialization</h4><p>React & Front-End Dev</p></div>
+                </div>
+                <div class="highlight">
+                    <div class="highlight-icon"><i class="fas fa-code"></i></div>
+                    <div><h4>Secondary Focus</h4><p>UI/UX & Performance</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section id="skills" class="section">
+    <div class="section-header">
+        <span class="section-label reveal">What I Know</span>
+        <h2 class="section-title reveal">Skills & Expertise</h2>
+        <p class="section-subtitle reveal">Technologies and tools I work with daily</p>
+    </div>
+    <div class="skills-grid">
+        <div class="glass-card skill-card reveal">
+            <h3><div class="skill-icon"><i class="fab fa-react"></i></div> Front-End Core</h3>
+            <div class="skill-bar-group"><div class="skill-bar-label"><span>React.js / Next.js</span><span>95%</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="95%"></div></div></div>
+            <div class="skill-bar-group"><div class="skill-bar-label"><span>TypeScript / JavaScript (ES6+)</span><span>93%</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="93%"></div></div></div>
+            <div class="skill-bar-group"><div class="skill-bar-label"><span>HTML5 & CSS3</span><span>97%</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="97%"></div></div></div>
+            <div class="skill-bar-group"><div class="skill-bar-label"><span>Three.js / Framer Motion</span><span>82%</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="82%"></div></div></div>
+        </div>
+        <div class="glass-card skill-card reveal">
+            <h3><div class="skill-icon"><i class="fas fa-palette"></i></div> Styling & UI/UX</h3>
+            <div class="skill-bar-group"><div class="skill-bar-label"><span>Tailwind CSS / Bootstrap</span><span>95%</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="95%"></div></div></div>
+            <div class="skill-bar-group"><div class="skill-bar-label"><span>CSS Animations & Micro-interactions</span><span>92%</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="92%"></div></div></div>
+            <div class="skill-bar-group"><div class="skill-bar-label"><span>Figma → Production Code</span><span>90%</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="90%"></div></div></div>
+            <div class="skill-bar-group"><div class="skill-bar-label"><span>Component Architecture</span><span>93%</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="93%"></div></div></div>
+        </div>
+        <div class="glass-card skill-card reveal">
+            <h3><div class="skill-icon"><i class="fas fa-server"></i></div> APIs & Data Viz</h3>
+            <div class="skill-bar-group"><div class="skill-bar-label"><span>REST APIs / JSON</span><span>92%</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="92%"></div></div></div>
+            <div class="skill-bar-group"><div class="skill-bar-label"><span>Chart.js / D3.js Dashboards</span><span>88%</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="88%"></div></div></div>
+            <div class="skill-bar-group"><div class="skill-bar-label"><span>Node.js / SQL (Backend)</span><span>80%</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="80%"></div></div></div>
+            <div class="skill-bar-group"><div class="skill-bar-label"><span>Performance Optimization</span><span>90%</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="90%"></div></div></div>
+        </div>
+        <div class="glass-card skill-card reveal">
+            <h3><div class="skill-icon"><i class="fas fa-tools"></i></div> Tools & Workflow</h3>
+            <div class="skill-bar-group"><div class="skill-bar-label"><span>Git & GitHub</span><span>93%</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="93%"></div></div></div>
+            <div class="skill-bar-group"><div class="skill-bar-label"><span>Webpack / Vite</span><span>85%</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="85%"></div></div></div>
+            <div class="skill-bar-group"><div class="skill-bar-label"><span>Accessibility (WCAG 2.1)</span><span>88%</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="88%"></div></div></div>
+            <div class="skill-bar-group"><div class="skill-bar-label"><span>Agile / Scrum</span><span>90%</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="90%"></div></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== EXPERIENCE ===== -->
+<section id="experience" class="section">
+    <div class="section-header">
+        <span class="section-label reveal">My Journey</span>
+        <h2 class="section-title reveal">Experience & Education</h2>
+        <p class="section-subtitle reveal">Professional milestones and growth trajectory</p>
+    </div>
+    <div class="timeline">
+        <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="glass-card">
+                <div class="timeline-badge">2023 — 2026 · Apprentice</div>
+                <h3>Front-End Developer (Apprentice)</h3>
+                <p class="company">SKIE</p>
+                <ul>
+                    <li>Developed and maintained interactive React-based dashboards surfacing real-time business KPIs, improving stakeholder decision-making efficiency by 30%</li>
+                    <li>Engineered reusable UI component libraries in JavaScript (ES6+) and CSS3, reducing feature development time by 40%</li>
+                    <li>Built data visualization interfaces using Chart.js and custom HTML5/CSS3 components</li>
+                    <li>Integrated REST APIs to fetch, transform, and render live data into responsive front-end views</li>
+                    <li>Implemented performance optimizations (lazy loading, code splitting), reducing page load time by 45%</li>
+                    <li>Collaborated in Agile teams on 2-week sprint cycles with UX, back-end, and analytics</li>
+                </ul>
+            </div>
+        </div>
+        <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="glass-card">
+                <div class="timeline-badge">2025 — 2026 · Internship</div>
+                <h3>Foundation in AI Technology</h3>
+                <p class="company">NIELIT (National Institute of Electronics & IT)</p>
+                <ul>
+                    <li>Designed interactive, responsive data visualization interfaces and dynamic dashboards using Python, Matplotlib, Pandas, and NumPy</li>
+                    <li>Created creative UI/UX components for AI-powered applications with seamless micro-interactions</li>
+                    <li>Built end-to-end front-end prototypes for ML model demos with real-time visual interfaces</li>
+                    <li>Implemented accessible, mobile-optimized layouts achieving WCAG 2.1 compliance</li>
+                </ul>
+            </div>
+        </div>
+        <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="glass-card">
+                <div class="timeline-badge">2023 · Internship</div>
+                <h3>Front-End Developer Intern</h3>
+                <p class="company">Apexure</p>
+                <ul>
+                    <li>Designed and delivered 8+ responsive websites using HTML5, CSS3, JavaScript, and Tailwind CSS — 100% client satisfaction</li>
+                    <li>Implemented UI/UX improvements from Figma mockups, reducing bounce rates by 25%</li>
+                    <li>Optimized front-end performance through asset compression and semantic HTML — Lighthouse 90+</li>
+                </ul>
+            </div>
+        </div>
+        <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="glass-card">
+                <div class="timeline-badge">2023 — 2026 · Education</div>
+                <h3>Bachelor of Science in Information Technology</h3>
+                <p class="company">Cluster University, Jammu & Kashmir</p>
+                <ul>
+                    <li>Final year — coursework in Data Structures, Algorithms, Web Development, Software Engineering</li>
+                    <li>9× first-place wins in district-level competitions, 1 state-level win</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section id="projects" class="section">
+    <div class="section-header">
+        <span class="section-label reveal">My Work</span>
+        <h2 class="section-title reveal">Featured Projects</h2>
+        <p class="section-subtitle reveal">Real-world solutions I've designed and built</p>
+    </div>
+    <div class="projects-grid">
+        <div class="project-card glass-card reveal">
+            <div class="project-visual"><i class="fas fa-fingerprint"></i></div>
+            <div class="project-body">
+                <h3>AI Facial Biometrics Auth App</h3>
+                <p>Mobile-first facial biometric authentication application with real-time face detection, seamless UI/UX animations, and micro-visual feedback for an intuitive biometric experience.</p>
+                <div class="project-tags">
+                    <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Tailwind</span><span class="tag">Framer Motion</span><span class="tag">Face API</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link primary"><i class="fas fa-external-link-alt"></i> Details</a>
+                    <a href="#" class="project-link outline"><i class="fab fa-github"></i> Code</a>
+                </div>
+            </div>
+        </div>
+        <div class="project-card glass-card reveal">
+            <div class="project-visual" style="background: linear-gradient(135deg, rgba(6,182,212,0.1), rgba(108,92,231,0.1));">
+                <i class="fas fa-heartbeat"></i>
+            </div>
+            <div class="project-body">
+                <h3>Health Insurance Portal</h3>
+                <p>Complete, highly responsive health insurance platform with interactive calculators, policy comparison dashboards, dynamic forms, engaging animations, and progress indicators.</p>
+                <div class="project-tags">
+                    <span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Tailwind</span><span class="tag">Framer Motion</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://forvera.netlify.app" target="_blank" class="project-link primary"><i class="fas fa-external-link-alt"></i> Live Site</a>
+                    <a href="#" class="project-link outline"><i class="fab fa-github"></i> Code</a>
+                </div>
+            </div>
+        </div>
+        <div class="project-card glass-card reveal">
+            <div class="project-visual" style="background: linear-gradient(135deg, rgba(168,85,247,0.1), rgba(236,72,153,0.1));">
+                <i class="fas fa-bullhorn"></i>
+            </div>
+            <div class="project-body">
+                <h3>Smart Marketing Platform</h3>
+                <p>High-converting affiliate marketing websites with sleek dashboards, real-time conversion trackers, responsive product showcases, and reusable marketing module components.</p>
+                <div class="project-tags">
+                    <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Tailwind</span><span class="tag">Next.js</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link primary"><i class="fas fa-external-link-alt"></i> Details</a>
+                    <a href="#" class="project-link outline"><i class="fab fa-github"></i> Code</a>
+                </div>
+            </div>
+        </div>
+        <div class="project-card glass-card reveal">
+            <div class="project-visual" style="background: linear-gradient(135deg, rgba(16,185,129,0.1), rgba(108,92,231,0.1));">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="project-body">
+                <h3>E-Commerce Platform</h3>
+                <p>Full-featured e-commerce platform with advanced property search, interactive maps, virtual tours, and Stripe payment integration. Built with Next.js and server-side rendering.</p>
+                <div class="project-tags">
+                    <span class="tag">React</span><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Tailwind</span><span class="tag">Stripe</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link primary"><i class="fas fa-external-link-alt"></i> Details</a>
+                    <a href="#" class="project-link outline"><i class="fab fa-github"></i> Code</a>
+                </div>
+            </div>
+        </div>
+        <div class="project-card glass-card reveal">
+            <div class="project-visual" style="background: linear-gradient(135deg, rgba(236,72,153,0.1), rgba(6,182,212,0.1));">
+                <i class="fas fa-dumbbell"></i>
+            </div>
+            <div class="project-body">
+                <h3>Health & Fitness PWA</h3>
+                <p>Progressive Web App for workout tracking, progress dashboards, and meal planning with interactive charts and mobile-first architecture for a native-app-like feel.</p>
+                <div class="project-tags">
+                    <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Tailwind</span><span class="tag">Framer Motion</span><span class="tag">PWA</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link primary"><i class="fas fa-external-link-alt"></i> Details</a>
+                    <a href="#" class="project-link outline"><i class="fab fa-github"></i> Code</a>
+                </div>
+            </div>
+        </div>
+        <div class="project-card glass-card reveal">
+            <div class="project-visual" style="background: linear-gradient(135deg, rgba(108,92,231,0.1), rgba(16,185,129,0.1));">
+                <i class="fas fa-rocket"></i>
+            </div>
+            <div class="project-body">
+                <h3>Micro SaaS Product</h3>
+                <p>Complete micro-SaaS web application with intuitive dashboards, subscription management via Stripe, self-serve user tools, and clean mobile-first responsive design.</p>
+                <div class="project-tags">
+                    <span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Tailwind</span><span class="tag">Stripe</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link primary"><i class="fas fa-external-link-alt"></i> Details</a>
+                    <a href="#" class="project-link outline"><i class="fab fa-github"></i> Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="section">
+    <div class="section-header">
+        <span class="section-label reveal">Let's Connect</span>
+        <h2 class="section-title reveal">Get In Touch</h2>
+        <p class="section-subtitle reveal">Ready to collaborate? I'd love to hear from you</p>
+    </div>
+    <div class="contact-grid">
+        <div class="reveal">
+            <div class="contact-method">
+                <div class="icon"><i class="fas fa-envelope"></i></div>
+                <div><h4>Email</h4><p>iltifaatyousuf@gmail.com</p></div>
+            </div>
+            <div class="contact-method" style="margin-top: 1rem;">
+                <div class="icon"><i class="fas fa-phone"></i></div>
+                <div><h4>Phone</h4><p>+91 9682648455</p></div>
+            </div>
+            <div class="contact-method" style="margin-top: 1rem;">
+                <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div><h4>Location</h4><p>Srinagar, Jammu & Kashmir, India</p></div>
+            </div>
+            <div class="contact-method" style="margin-top: 1rem;">
+                <div class="icon"><i class="fas fa-globe"></i></div>
+                <div><h4>Website</h4><p>forvera.netlify.app</p></div>
+            </div>
+        </div>
+        <form class="glass-card reveal" id="contactForm">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="John Doe" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="john@company.com" required>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Project Inquiry" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Tell me about your project or opportunity..." required></textarea>
+            </div>
+            <button type="submit" class="btn-primary" id="submitBtn" style="width: 100%; justify-content: center;">
+                <span id="btnText"><i class="fas fa-paper-plane"></i> Send Message</span>
+                <div id="btnLoading" style="display:none;width:18px;height:18px;border:2px solid rgba(255,255,255,0.3);border-radius:50%;border-top-color:white;animation:spin 0.8s linear infinite;"></div>
+            </button>
+            <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
+        </form>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="social-links">
+        <a href="mailto:iltifaatyousuf@gmail.com" class="social-link" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://github.com/iltifaatyousuf" target="_blank" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/iltifaatyousuf" target="_blank" class="social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://forvera.netlify.app" target="_blank" class="social-link" title="Website"><i class="fas fa-globe"></i></a>
+    </div>
+    <p>© 2026 Iltifat Nath. Built with precision & passion.</p>
+    <p style="margin-top: 0.3rem; font-size: 0.8rem;">Available for full-time roles & freelance collaboration</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
