@@ -1,0 +1,862 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Iltifat Nath — Front-End Developer & UI/UX Designer. React, Next.js, GSAP, and React Three Fiber, crafting expressive, animation-rich interfaces."
+    />
+    <meta name="author" content="Iltifat Nath" />
+    <meta
+      name="keywords"
+      content="Front-End Developer, UI/UX Designer, React, Next.js, TypeScript, GSAP, React Three Fiber, Tailwind CSS, Blender, After Effects, Figma"
+    />
+    <meta
+      property="og:title"
+      content="Iltifat Nath — Front-End Developer & UI/UX Designer"
+    />
+    <meta
+      property="og:description"
+      content="Front-End Developer & UI/UX Designer crafting expressive, animation-rich interfaces with React, Next.js, GSAP, and React Three Fiber."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>Iltifat Nath — Front-End Developer &amp; UI/UX Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <canvas id="bgShader" class="bg-shader" aria-hidden="true"></canvas>
+    <div class="grain"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing">
+      <span id="cursorLabel"></span>
+    </div>
+
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- ===== NAV ===== -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-inner">
+        <a href="#top" class="logo" data-cursor="view">
+          <span class="logo-bracket">&lt;</span>iltifat<span
+            class="logo-bracket"
+            >/&gt;</span
+          >
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#about" data-cursor="view">About</a></li>
+          <li><a href="#skills" data-cursor="view">Skills</a></li>
+          <li><a href="#experience" data-cursor="view">Experience</a></li>
+          <li><a href="#work" data-cursor="view">Work</a></li>
+        </ul>
+
+        <div class="nav-right">
+          <div class="nav-clock" id="navClock" aria-hidden="true">
+            <span class="clock-dot"></span>
+            <span id="clockTime">--:--</span>
+            <span class="clock-zone">IST · Srinagar</span>
+          </div>
+          <a href="#contact" class="btn-primary nav-cta" data-cursor="magnetic"
+            ><span>Hire Me</span></a
+          >
+          <button
+            class="mobile-menu-btn"
+            id="mobileMenuBtn"
+            aria-label="Toggle menu"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#contact" class="mobile-cta">Hire Me</a></li>
+      </ul>
+    </div>
+
+    <main id="top">
+      <!-- ===== HERO ===== -->
+      <section class="hero" id="hero">
+        <div class="hero-bg-glow"></div>
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <div class="eyebrow reveal">
+              <span class="eyebrow-dot"></span>Open to opportunities
+            </div>
+            <h1 class="visually-hidden">
+              Iltifat Nath — Front-End Developer &amp; UI/UX Designer crafting
+              expressive, animation-rich React interfaces
+            </h1>
+
+            <div
+              class="code-window reveal"
+              id="codeWindow"
+              role="img"
+              aria-hidden="true"
+            >
+              <div class="code-titlebar">
+                <div class="code-dots">
+                  <span></span><span></span><span></span>
+                </div>
+                <div class="code-filename">developer.ts</div>
+                <div class="code-lines-count">1× — Iltifat</div>
+              </div>
+              <div class="code-body">
+                <pre
+                  class="code-pre"
+                ><code id="typedCode"></code><span class="code-caret" id="codeCaret"></span></pre>
+              </div>
+            </div>
+
+            <p class="hero-description reveal">
+              An artist first — I build front-end interfaces that feel designed,
+              not assembled: glassmorphic surfaces, GSAP-driven motion, and the
+              odd easter egg for the curious to find.
+            </p>
+
+            <div class="hero-ctas reveal">
+              <a href="#work" class="btn-primary" data-cursor="magnetic"
+                ><span><i class="fas fa-arrow-down"></i> View my work</span></a
+              >
+              <a href="#contact" class="btn-secondary" data-cursor="magnetic"
+                ><span>Get in touch</span></a
+              >
+            </div>
+
+            <div class="hero-stats reveal">
+              <div class="stat">
+                <span class="stat-value" data-count="5" data-suffix="+">0</span
+                ><span class="stat-label">Years of craft</span>
+              </div>
+              <div class="stat">
+                <span class="stat-value" data-count="15" data-suffix="+">0</span
+                ><span class="stat-label">Projects shipped</span>
+              </div>
+              <div class="stat">
+                <span class="stat-value" data-count="4" data-suffix="">0</span
+                ><span class="stat-label">Companies</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="scroll-cue reveal" aria-hidden="true">
+          <span>Scroll</span>
+          <div class="scroll-cue-line"><i></i></div>
+        </div>
+      </section>
+
+      <!-- ===== MARQUEE ===== -->
+      <section class="marquee-section" aria-label="Technologies I work with">
+        <div class="marquee-row" data-dir="left">
+          <div class="marquee-track">
+            <span class="marquee-item">React.js</span
+            ><span class="marquee-item">Next.js</span
+            ><span class="marquee-item">TypeScript</span
+            ><span class="marquee-item">Java</span
+            ><span class="marquee-item">Tailwind CSS</span
+            ><span class="marquee-item">GSAP</span
+            ><span class="marquee-item">React Three Fiber</span>
+            <span class="marquee-item">React.js</span
+            ><span class="marquee-item">Next.js</span
+            ><span class="marquee-item">TypeScript</span
+            ><span class="marquee-item">Java</span
+            ><span class="marquee-item">Tailwind CSS</span
+            ><span class="marquee-item">GSAP</span
+            ><span class="marquee-item">React Three Fiber</span>
+          </div>
+        </div>
+        <div class="marquee-row" data-dir="right">
+          <div class="marquee-track">
+            <span class="marquee-item outline">Figma</span
+            ><span class="marquee-item outline">Blender</span
+            ><span class="marquee-item outline">After Effects</span
+            ><span class="marquee-item outline">Canva</span
+            ><span class="marquee-item outline">Digital Calligraphy</span
+            ><span class="marquee-item outline">Chrome DevTools</span>
+            <span class="marquee-item outline">Figma</span
+            ><span class="marquee-item outline">Blender</span
+            ><span class="marquee-item outline">After Effects</span
+            ><span class="marquee-item outline">Canva</span
+            ><span class="marquee-item outline">Digital Calligraphy</span
+            ><span class="marquee-item outline">Chrome DevTools</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== ABOUT ===== -->
+      <section id="about" class="section">
+        <div class="section-header">
+          <span class="section-label reveal"
+            ><i class="fas fa-terminal"></i> Who I Am</span
+          >
+          <h2 class="section-title reveal">About&nbsp;me</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text-col">
+            <p class="about-lead reveal">
+              For over <strong>5 years</strong>, I've been an artist first —
+              translating that into beautiful, highly creative front-end work. I
+              move between striking minimalism, magazine-style layouts, and
+              esoteric UIs with celestial imagery, dramatic contrast, and Y2K
+              chrome.
+            </p>
+            <p class="reveal">
+              I don't just build websites; I design immersive experiences,
+              usually with a few clever easter eggs hidden for the curious.
+              Glassmorphic surfaces, parallax scrolling, on-hover effects like
+              dissolving type or elements that "explode" on scroll — sometimes a
+              cinematic video or a bit of sound to match the mood.
+            </p>
+            <p class="reveal">
+              From AI-powered interfaces at <strong>NIELIT</strong>, to creative
+              sites at <strong>SKIE</strong> and <strong>PW</strong>, to a
+              UK-based hybrid internship at <strong>Apexure</strong> — my focus
+              stays on beautiful UI/UX, smooth performance, and fully responsive
+              pages, with a personal touch AI can't replicate.
+            </p>
+
+            <div class="about-highlights">
+              <div class="highlight reveal">
+                <div class="highlight-icon">
+                  <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div>
+                  <h4>BSc IT · Final Year</h4>
+                  <p>Cluster University, J&amp;K</p>
+                </div>
+              </div>
+              <div class="highlight reveal">
+                <div class="highlight-icon">
+                  <i class="fas fa-location-dot"></i>
+                </div>
+                <div>
+                  <h4>Based in</h4>
+                  <p>Srinagar, Jammu &amp; Kashmir</p>
+                </div>
+              </div>
+              <div class="highlight reveal">
+                <div class="highlight-icon"><i class="fab fa-react"></i></div>
+                <div>
+                  <h4>Specialization</h4>
+                  <p>React, R3F &amp; motion design</p>
+                </div>
+              </div>
+              <div class="highlight reveal">
+                <div class="highlight-icon">
+                  <i class="fas fa-wand-magic-sparkles"></i>
+                </div>
+                <div>
+                  <h4>Secondary focus</h4>
+                  <p>3D, GSAP &amp; glassmorphic UI</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-visual reveal">
+            <div class="mood-reveal">
+              <div class="mood-stage" id="moodStage">
+                <div class="mood-stage-bg mood-glass" id="moodStageBg"></div>
+                <span class="mood-stage-label" id="moodStageLabel"
+                  >Glassmorphic</span
+                >
+              </div>
+              <ul class="mood-list" id="moodList">
+                <li data-mood="glass" tabindex="0" class="active">
+                  Glassmorphic
+                </li>
+                <li data-mood="y2k" tabindex="0">Y2K Chrome</li>
+                <li data-mood="celestial" tabindex="0">Celestial</li>
+                <li data-mood="minimal" tabindex="0">Minimalism</li>
+                <li data-mood="magazine" tabindex="0">Magazine Layouts</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SKILLS ===== -->
+      <section id="skills" class="section">
+        <div class="section-header">
+          <span class="section-label reveal"
+            ><i class="fas fa-layer-group"></i> What I Know</span
+          >
+          <h2 class="section-title reveal">Skills &amp;&nbsp;expertise</h2>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-card reveal">
+            <div class="skill-card-head">
+              <div class="skill-icon"><i class="fab fa-react"></i></div>
+              <h3>Development</h3>
+            </div>
+            <div class="skill-tags">
+              <span>React.js</span><span>Next.js</span><span>Java</span
+              ><span>TypeScript</span><span>Tailwind CSS</span
+              ><span>Chrome DevTools</span>
+            </div>
+          </div>
+          <div class="skill-card reveal">
+            <div class="skill-card-head">
+              <div class="skill-icon"><i class="fas fa-cube"></i></div>
+              <h3>Motion, 3D &amp; Visual Design</h3>
+            </div>
+            <div class="skill-tags">
+              <span>GSAP</span><span>React Three Fiber (R3F)</span
+              ><span>Blender</span><span>After Effects</span><span>Figma</span
+              ><span>Canva</span><span>Digital Calligraphy</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== EXPERIENCE ===== -->
+      <section id="experience" class="section">
+        <div class="section-header">
+          <span class="section-label reveal"
+            ><i class="fas fa-timeline"></i> My Journey</span
+          >
+          <h2 class="section-title reveal">Experience &amp;&nbsp;education</h2>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-line" aria-hidden="true"></div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-badge">Dec 2025 — Jan 2026 · Internship</div>
+              <h3>Artificial Intelligence Engineering Intern</h3>
+              <p class="company">
+                NIELIT — National Institute of Electronics &amp; IT
+              </p>
+              <ul>
+                <li>
+                  Designed and developed interactive, responsive
+                  data-visualization interfaces and dynamic dashboards using
+                  Python, Matplotlib, Pandas, and NumPy
+                </li>
+                <li>
+                  Created UI/UX components for AI-powered applications, focused
+                  on clean, modern design with seamless micro-interactions
+                </li>
+                <li>
+                  Built and optimized ML and deep-learning models (including
+                  ANNs and CNNs) using Scikit-learn, TensorFlow, and PyTorch,
+                  with performance and front-end integration in mind
+                </li>
+                <li>
+                  Applied computer-vision techniques with OpenCV for image
+                  processing and object detection
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-badge">Mar 2025 — Dec 2025 · Internship</div>
+              <h3>Front-End Developer &amp; Designing (Intern)</h3>
+              <p class="company">SKIE</p>
+              <ul>
+                <li>
+                  Developed user-friendly, fully functional websites for
+                  multiple educational institutions
+                </li>
+                <li>
+                  Designed and built short-term promotional websites and landing
+                  pages for specific events and campaigns
+                </li>
+                <li>
+                  Handled digital branding — custom marketing logos and
+                  eye-catching advertisements to drive engagement
+                </li>
+                <li>
+                  Blended technical development with artistic design so every
+                  deliverable looked professional and visually beautiful
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-badge">Feb 2024 — Jan 2025 · Internship</div>
+              <h3>Front-End Developer &amp; Data Analysis (Intern)</h3>
+              <p class="company">PW</p>
+              <ul>
+                <li>
+                  Designed and developed visually stunning, creative hero pages
+                  to immediately capture user attention
+                </li>
+                <li>
+                  Created custom charts and graphical representations to make
+                  complex data analysis visually appealing and easy to
+                  understand
+                </li>
+                <li>
+                  Designed high-quality visual assets, graphics, and layouts for
+                  digital advertisement purposes
+                </li>
+                <li>
+                  Built full websites from scratch, balancing artistic visual
+                  design with functional layout
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-badge">Aug 2023 — Oct 2023 · Internship</div>
+              <h3>Front-End Developer &amp; UI/UX Designing Intern</h3>
+              <p class="company">Apexure — United Kingdom, London (hybrid)</p>
+              <ul>
+                <li>
+                  Developed 6+ responsive websites using HTML, CSS, JavaScript,
+                  and Tailwind CSS — spanning playful, cartoony layouts, a
+                  newspaper-style site, and a professional health insurance
+                  platform
+                </li>
+                <li>
+                  Designed custom 3D assets in Blender and built highly
+                  engaging, interactive web components
+                </li>
+                <li>
+                  Brought static Figma designs to life with dynamic button and
+                  hover animations
+                </li>
+                <li>
+                  Optimized all creative designs for fast load times and
+                  flawless performance across mobile devices
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-badge">2023 — 2026 · Education</div>
+              <h3>BSc in Information Technology</h3>
+              <p class="company">Cluster University, Jammu &amp; Kashmir</p>
+              <ul>
+                <li>
+                  Final year — Data Structures, Algorithms, Web Development,
+                  Software Engineering
+                </li>
+                <li>9× first-place district-level wins, 1 state-level win</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== WORK ===== -->
+      <section id="work" class="section">
+        <div class="section-header">
+          <span class="section-label reveal"
+            ><i class="fas fa-diagram-project"></i> My Work</span
+          >
+          <h2 class="section-title reveal">Featured&nbsp;projects</h2>
+        </div>
+
+        <div class="work-grid">
+          <article
+            class="work-card reveal"
+            style="--card-a: 110, 231, 183; --card-b: 179, 157, 255"
+          >
+            <div class="work-visual"><i class="fas fa-heart-pulse"></i></div>
+            <div class="work-body">
+              <div class="work-top">
+                <h3>Health Insurance Website</h3>
+                <div class="work-links">
+                  <a
+                    href="https://health-insurance-dusky.vercel.app/"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="Live site"
+                    data-cursor="magnetic"
+                    ><i class="fas fa-arrow-up-right-from-square"></i></a
+                  ><a
+                    href="https://github.com/iltifatyousuf"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="Code"
+                    data-cursor="magnetic"
+                    ><i class="fab fa-github"></i
+                  ></a>
+                </div>
+              </div>
+              <p>
+                A professional health-insurance platform with a bold hero,
+                custom charts, and a fully responsive layout — built for
+                Apexure.
+              </p>
+              <div class="work-tags">
+                <span>React</span><span>Tailwind CSS</span><span>GSAP</span>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="work-card reveal"
+            style="--card-a: 255, 122, 69; --card-b: 110, 231, 183"
+          >
+            <div class="work-visual"><i class="fas fa-globe"></i></div>
+            <div class="work-body">
+              <div class="work-top">
+                <h3>ForVera</h3>
+                <div class="work-links">
+                  <a
+                    href="https://forvera.vercel.app/"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="Live site"
+                    data-cursor="magnetic"
+                    ><i class="fas fa-arrow-up-right-from-square"></i></a
+                  ><a
+                    href="https://github.com/iltifatyousuf"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="Code"
+                    data-cursor="magnetic"
+                    ><i class="fab fa-github"></i
+                  ></a>
+                </div>
+              </div>
+              <p>
+                A full site built from scratch balancing artistic visual design
+                with a functional, data-driven layout.
+              </p>
+              <div class="work-tags">
+                <span>Next.js</span><span>React</span><span>Tailwind CSS</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <h3 class="playground-heading reveal">UI/UX Playground</h3>
+        <p class="playground-subtitle reveal">
+          Smaller experiments — the kind of hands-on practice that builds the
+          interactions above.
+        </p>
+
+        <div class="playground-grid">
+          <a
+            href="https://github.com/iltifatyousuf"
+            target="_blank"
+            rel="noopener"
+            class="playground-item reveal"
+            data-cursor="magnetic"
+            ><span>Netflix Clone</span
+            ><i class="fas fa-arrow-up-right-from-square"></i
+          ></a>
+          <a
+            href="https://purple-slider.vercel.app/"
+            target="_blank"
+            rel="noopener"
+            class="playground-item reveal"
+            data-cursor="magnetic"
+            ><span>Purple Slider</span
+            ><i class="fas fa-arrow-up-right-from-square"></i
+          ></a>
+          <a
+            href="https://button-seven-indol.vercel.app/"
+            target="_blank"
+            rel="noopener"
+            class="playground-item reveal"
+            data-cursor="magnetic"
+            ><span>Neo Morphic Button</span
+            ><i class="fas fa-arrow-up-right-from-square"></i
+          ></a>
+          <a
+            href="https://cursor-iis2.vercel.app/"
+            target="_blank"
+            rel="noopener"
+            class="playground-item reveal"
+            data-cursor="magnetic"
+            ><span>Cursor</span><i class="fas fa-arrow-up-right-from-square"></i
+          ></a>
+          <a
+            href="https://github.com/iltifatyousuf"
+            target="_blank"
+            rel="noopener"
+            class="playground-item reveal"
+            data-cursor="magnetic"
+            ><span>Simple Form</span
+            ><i class="fas fa-arrow-up-right-from-square"></i
+          ></a>
+          <a
+            href="https://cursor-tau-seven.vercel.app/"
+            target="_blank"
+            rel="noopener"
+            class="playground-item reveal"
+            data-cursor="magnetic"
+            ><span>Hover</span><i class="fas fa-arrow-up-right-from-square"></i
+          ></a>
+          <a
+            href="https://accordion-one-black.vercel.app/"
+            target="_blank"
+            rel="noopener"
+            class="playground-item reveal"
+            data-cursor="magnetic"
+            ><span>Accordion</span
+            ><i class="fas fa-arrow-up-right-from-square"></i
+          ></a>
+          <a
+            href="https://vercel.com/iltifat-naths-projects/aurora/5hnUgZx8NpkKnAjUyCgLn2AB5tZU"
+            target="_blank"
+            rel="noopener"
+            class="playground-item reveal"
+            data-cursor="magnetic"
+            ><span>Aurora</span><i class="fas fa-arrow-up-right-from-square"></i
+          ></a>
+          <a
+            href="https://grid-design-rho.vercel.app/"
+            target="_blank"
+            rel="noopener"
+            class="playground-item reveal"
+            data-cursor="magnetic"
+            ><span>Grid Design</span
+            ><i class="fas fa-arrow-up-right-from-square"></i
+          ></a>
+          <a
+            href="https://increement-decreement.vercel.app/"
+            target="_blank"
+            rel="noopener"
+            class="playground-item reveal"
+            data-cursor="magnetic"
+            ><span>Increment &amp; Decrement</span
+            ><i class="fas fa-arrow-up-right-from-square"></i
+          ></a>
+          <a
+            href="https://vercel.com/iltifat-naths-projects/glassmorphic-hover/Bh85RLVQ3SwKNcg27hru9fmfBQs7"
+            target="_blank"
+            rel="noopener"
+            class="playground-item reveal"
+            data-cursor="magnetic"
+            ><span>Glassmorphic Hover</span
+            ><i class="fas fa-arrow-up-right-from-square"></i
+          ></a>
+          <a
+            href="https://hamburger-menu-inky.vercel.app/"
+            target="_blank"
+            rel="noopener"
+            class="playground-item reveal"
+            data-cursor="magnetic"
+            ><span>Hamburger Menu</span
+            ><i class="fas fa-arrow-up-right-from-square"></i
+          ></a>
+          <a
+            href="https://navbar-eight-chi.vercel.app/"
+            target="_blank"
+            rel="noopener"
+            class="playground-item reveal"
+            data-cursor="magnetic"
+            ><span>NavBar</span><i class="fas fa-arrow-up-right-from-square"></i
+          ></a>
+        </div>
+      </section>
+
+      <!-- ===== CONTACT ===== -->
+      <section id="contact" class="section contact-section">
+        <div class="contact-cta reveal">
+          <h2>Have a project in mind?<br />Let's ship it.</h2>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info reveal">
+            <a
+              class="contact-method"
+              href="mailto:iltifaatyousuf@gmail.com"
+              data-cursor="magnetic"
+            >
+              <div class="icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <h4>Email</h4>
+                <p>iltifaatyousuf@gmail.com</p>
+              </div>
+            </a>
+            <a
+              class="contact-method"
+              href="tel:+919682648455"
+              data-cursor="magnetic"
+            >
+              <div class="icon"><i class="fas fa-phone"></i></div>
+              <div>
+                <h4>Phone</h4>
+                <p>+91 96826 48455</p>
+              </div>
+            </a>
+            <div class="contact-method">
+              <div class="icon"><i class="fas fa-location-dot"></i></div>
+              <div>
+                <h4>Location</h4>
+                <p>Srinagar, Jammu &amp; Kashmir, India</p>
+              </div>
+            </div>
+            <a
+              class="contact-method"
+              href="https://www.linkedin.com/in/iltifat-yousuf-4010ba1a6"
+              target="_blank"
+              rel="noopener"
+              data-cursor="magnetic"
+            >
+              <div class="icon"><i class="fab fa-linkedin-in"></i></div>
+              <div>
+                <h4>LinkedIn</h4>
+                <p>iltifat-yousuf</p>
+              </div>
+            </a>
+            <a
+              class="contact-method"
+              href="https://github.com/iltifatyousuf"
+              target="_blank"
+              rel="noopener"
+              data-cursor="magnetic"
+            >
+              <div class="icon"><i class="fab fa-github"></i></div>
+              <div>
+                <h4>GitHub</h4>
+                <p>iltifatyousuf</p>
+              </div>
+            </a>
+          </div>
+
+          <form class="contact-form reveal" id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="John Doe"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="john@company.com"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="Project inquiry"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Tell me about your project or opportunity..."
+                required
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="btn-primary"
+              id="submitBtn"
+              data-cursor="magnetic"
+            >
+              <span id="btnText"
+                ><i class="fas fa-paper-plane"></i> Send message</span
+              >
+              <span id="btnLoading" class="btn-spinner" hidden></span>
+            </button>
+            <p class="form-note" id="formNote" role="status"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <a href="#top" class="logo" data-cursor="view"
+          ><span class="logo-bracket">&lt;</span>iltifat<span
+            class="logo-bracket"
+            >/&gt;</span
+          ></a
+        >
+        <div class="social-links">
+          <a
+            href="mailto:iltifaatyousuf@gmail.com"
+            class="social-link"
+            title="Email"
+            data-cursor="magnetic"
+            ><i class="fas fa-envelope"></i
+          ></a>
+          <a
+            href="https://github.com/iltifatyousuf"
+            target="_blank"
+            rel="noopener"
+            class="social-link"
+            title="GitHub"
+            data-cursor="magnetic"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/iltifat-yousuf-4010ba1a6"
+            target="_blank"
+            rel="noopener"
+            class="social-link"
+            title="LinkedIn"
+            data-cursor="magnetic"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+        </div>
+        <p class="footer-fine">
+          © 2026 Iltifat Nath. Built with precision &amp; passion.
+        </p>
+        <p class="footer-fine subtle">
+          Available for full-time roles &amp; freelance collaboration
+        </p>
+      </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+  </body>
+</html>
