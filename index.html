@@ -1,862 +1,509 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Iltifat Nath — Front-End Developer & UI/UX Designer. React, Next.js, GSAP, and React Three Fiber, crafting expressive, animation-rich interfaces."
+      content="Iltifat Nath — Full Stack Developer & UI/UX Designer. Angular, React, TypeScript, and Zoho Catalyst, building thoughtful websites and applications."
     />
     <meta name="author" content="Iltifat Nath" />
     <meta
       name="keywords"
-      content="Front-End Developer, UI/UX Designer, React, Next.js, TypeScript, GSAP, React Three Fiber, Tailwind CSS, Blender, After Effects, Figma"
+      content="Full Stack Developer, UI/UX Designer, Angular, TypeScript, React, Next.js, Zoho, Zoho Catalyst, Backend Development, Tailwind CSS, Figma"
     />
     <meta
       property="og:title"
-      content="Iltifat Nath — Front-End Developer & UI/UX Designer"
+      content="Iltifat Nath — Full Stack Developer & UI/UX Designer"
     />
     <meta
       property="og:description"
-      content="Front-End Developer & UI/UX Designer crafting expressive, animation-rich interfaces with React, Next.js, GSAP, and React Three Fiber."
+      content="Full Stack Developer & UI/UX Designer building websites and applications with Angular, React, TypeScript, and Zoho Catalyst."
     />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <title>Iltifat Nath — Front-End Developer &amp; UI/UX Designer</title>
+    <title>Iltifat Nath — Full Stack Developer &amp; UI/UX Designer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="styles.css?v=83365de912" />
   </head>
-  <body>
-    <canvas id="bgShader" class="bg-shader" aria-hidden="true"></canvas>
-    <div class="grain"></div>
-    <div class="cursor-dot" id="cursorDot"></div>
-    <div class="cursor-ring" id="cursorRing">
-      <span id="cursorLabel"></span>
+<body id="top">
+<svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><defs>
+<symbol id="icon-arrow-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></symbol>
+<symbol id="icon-arrow-down-right" viewBox="0 0 24 24"><path d="m7 7 10 10M7 17h10V7"/></symbol>
+<symbol id="icon-chevron-down" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></symbol>
+<symbol id="icon-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14m-6-6 6 6 6-6"/></symbol>
+<symbol id="icon-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5m-6 6 6-6 6 6"/></symbol>
+<symbol id="icon-code" viewBox="0 0 24 24"><path d="m8 8-4 4 4 4m8-8 4 4-4 4m-3-11-2 14"/></symbol>
+<symbol id="icon-server" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="7" rx="2"/><rect x="4" y="14" width="16" height="7" rx="2"/><path d="M8 6.5h.01M8 17.5h.01M12 6.5h4M12 17.5h4"/></symbol>
+<symbol id="icon-design" viewBox="0 0 24 24"><path d="m12 3 9 9-9 9-9-9 9-9Zm0 0v9m0 0 9 0m-9 0-9 0m9 0v9"/><circle cx="12" cy="12" r="2"/></symbol>
+<symbol id="icon-layers" viewBox="0 0 24 24"><path d="m12 3 10 5-10 5L2 8l10-5ZM2 12l10 5 10-5M2 16l10 5 10-5"/></symbol>
+<symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></symbol>
+<symbol id="icon-whatsapp" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
+<symbol id="icon-phone" viewBox="0 0 24 24"><path d="m7 3 3 5-2 2a14 14 0 0 0 6 6l2-2 5 3v3a2 2 0 0 1-2 2A19 19 0 0 1 2 5a2 2 0 0 1 2-2h3Z"/></symbol>
+<symbol id="icon-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></symbol>
+<symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+<symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></symbol>
+<symbol id="icon-expand" viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></symbol>
+<symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+<symbol id="icon-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="icon-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+<symbol id="icon-github" viewBox="0 0 24 24"><path d="M9 19c-4 1-4-2-6-2m13 5v-3.6a3.1 3.1 0 0 0-.9-2.4c3-.3 6.2-1.5 6.2-6.9a5.4 5.4 0 0 0-1.5-3.8 5 5 0 0 0-.1-3.8s-1.2-.4-3.9 1.5a13 13 0 0 0-7 0C5.1.1 3.9.5 3.9.5a5 5 0 0 0-.1 3.8A5.4 5.4 0 0 0 2.3 8c0 5.4 3.2 6.6 6.2 6.9a3.1 3.1 0 0 0-.9 2.4V22"/></symbol>
+<symbol id="icon-linkedin" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7m0-10h.01M11 17v-7m0 3a3 3 0 0 1 6 0v4"/></symbol>
+</defs></svg>
+
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="header">
+  <a href="#top" class="wordmark" aria-label="Iltifat Nath home">iltifat<span>.</span></a>
+  <nav class="desktop-nav" aria-label="Main navigation"><a href="#design-styles">Styles</a><a href="#work">Work</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#assessment">Project brief</a></nav>
+  <div class="header-actions">
+    <a class="header-whatsapp" href="https://wa.me/919682648455?text=Hi%20Iltifat%2C%20I%E2%80%99d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp at +91 96826 48455" title="Chat on WhatsApp"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg></a>
+  <a class="header-contact" href="mailto:iltifaatyousuf@gmail.com">Let’s talk <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav">Menu <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-menu"></use></svg></button>
+  </div>
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden><a href="#design-styles">Design styles <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></a><a href="#work">Work <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></a><a href="#about">About <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></a><a href="#experience">Experience <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></a><a href="#assessment">Project brief <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></a><a href="#contact">Contact <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></a></nav>
+</header>
+<main id="main">
+<section class="hero container" aria-labelledby="hero-title">
+
+  <div class="hero-meta"><span class="occupation"><span class="status-dot" aria-hidden="true"></span> Full Stack Developer &amp; UI/UX Designer</span></div>
+  <div class="hero-main">
+    <div class="hero-intro">
+  <h1 id="hero-title">Thoughtful design.<br><em>Beautifully built.</em></h1>
+  <div class="hero-bottom"><p>I’m Iltifat Nath, a full stack developer and UI/UX designer. I build thoughtful websites and applications, from the interface to the backend.</p><div class="hero-actions"><a class="button button-dark hero-button hero-button-primary" href="#work">Explore my work <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-down-right"></use></svg></a><a class="button hero-button hero-button-secondary" href="#assessment">Plan your project <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></a></div></div>
     </div>
+  <aside class="hero-file-library" aria-labelledby="hero-archive-title">
+    <div class="hero-archive-header"><div><p>Website design library</p><h2 id="hero-archive-title">The design <em>archive.</em></h2></div><a href="#design-styles" class="hero-archive-count">16 styles <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></a></div>
+    <div class="hero-archive-stage"><div class="hero-archive-spine" aria-hidden="true"><span>Visual directions</span></div><div class="hero-archive-folders"><a class="hero-folder is-active" href="#design-styles" data-hero-direction="minimal-product" data-title="Minimal product" aria-label="Explore Minimal product design">
+  <img class="hero-folder-art" src="assets/hero-folder-minimal-product.webp" alt="" width="360" height="694">
+  <span class="hero-folder-index" aria-hidden="true">01</span><span class="hero-folder-caption" aria-hidden="true">Minimal product</span>
+ </a><a class="hero-folder" href="#design-styles" data-hero-direction="expressive-type" data-title="Expressive typography" aria-label="Explore Expressive typography design">
+  <img class="hero-folder-art" src="assets/hero-folder-expressive-type.webp" alt="" width="360" height="686">
+  <span class="hero-folder-index" aria-hidden="true">02</span><span class="hero-folder-caption" aria-hidden="true">Expressive typography</span>
+ </a><a class="hero-folder" href="#design-styles" data-hero-direction="monochrome-editorial" data-title="Monochrome editorial" aria-label="Explore Monochrome editorial design">
+  <img class="hero-folder-art" src="assets/hero-folder-monochrome-editorial.webp" alt="" width="360" height="720">
+  <span class="hero-folder-index" aria-hidden="true">03</span><span class="hero-folder-caption" aria-hidden="true">Monochrome editorial</span>
+ </a><a class="hero-folder" href="#design-styles" data-hero-direction="art-led-storytelling" data-title="Art-led storytelling" aria-label="Explore Art-led storytelling design">
+  <img class="hero-folder-art" src="assets/hero-folder-art-led-storytelling.webp" alt="" width="360" height="640">
+  <span class="hero-folder-index" aria-hidden="true">04</span><span class="hero-folder-caption" aria-hidden="true">Art-led storytelling</span>
+ </a><a class="hero-folder" href="#design-styles" data-hero-direction="futuristic-3d" data-title="Futuristic 3D" aria-label="Explore Futuristic 3D design">
+  <img class="hero-folder-art" src="assets/hero-folder-futuristic-3d.webp" alt="" width="360" height="695">
+  <span class="hero-folder-index" aria-hidden="true">05</span><span class="hero-folder-caption" aria-hidden="true">Futuristic 3D</span>
+ </a><a class="hero-folder" href="#design-styles" data-hero-direction="cinematic-fashion" data-title="Cinematic fashion" aria-label="Explore Cinematic fashion design">
+ <img class="hero-folder-art" src="assets/hero-folder-cinematic-fashion.webp" alt="" width="360" height="629">
+ <span class="hero-folder-index" aria-hidden="true">06</span><span class="hero-folder-caption" aria-hidden="true">Cinematic fashion</span>
+</a><a class="hero-folder" href="#design-styles" data-hero-direction="playful-3d" data-title="Playful 3D" aria-label="Explore Playful 3D design">
+ <img class="hero-folder-art" src="assets/hero-folder-playful-3d.webp" alt="" width="360" height="540">
+ <span class="hero-folder-index" aria-hidden="true">07</span><span class="hero-folder-caption" aria-hidden="true">Playful 3D</span>
+</a><a class="hero-folder" href="#design-styles" data-hero-direction="cosmic-crypto" data-title="Cosmic crypto" aria-label="Explore Cosmic crypto design">
+ <img class="hero-folder-art" src="assets/hero-folder-cosmic-crypto.webp" alt="" width="360" height="648">
+ <span class="hero-folder-index" aria-hidden="true">08</span><span class="hero-folder-caption" aria-hidden="true">Cosmic crypto</span>
+</a></div></div>
+    <div class="hero-archive-footer"><a id="hero-archive-selected" href="#design-styles" data-hero-direction="minimal-product"><span id="hero-archive-selected-name">View Minimal product</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></a><span id="hero-archive-hint">Choose a folder to explore</span></div>
+  </aside>
+  </div>
+  <div class="hero-foot"><a href="#work">Scroll to explore <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-down"></use></svg></a></div>
+</section>
 
-    <div class="scroll-progress" id="scrollProgress"></div>
-
-    <!-- ===== NAV ===== -->
-    <nav class="navbar" id="navbar">
-      <div class="nav-inner">
-        <a href="#top" class="logo" data-cursor="view">
-          <span class="logo-bracket">&lt;</span>iltifat<span
-            class="logo-bracket"
-            >/&gt;</span
-          >
-        </a>
-
-        <ul class="nav-links">
-          <li><a href="#about" data-cursor="view">About</a></li>
-          <li><a href="#skills" data-cursor="view">Skills</a></li>
-          <li><a href="#experience" data-cursor="view">Experience</a></li>
-          <li><a href="#work" data-cursor="view">Work</a></li>
-        </ul>
-
-        <div class="nav-right">
-          <div class="nav-clock" id="navClock" aria-hidden="true">
-            <span class="clock-dot"></span>
-            <span id="clockTime">--:--</span>
-            <span class="clock-zone">IST · Srinagar</span>
-          </div>
-          <a href="#contact" class="btn-primary nav-cta" data-cursor="magnetic"
-            ><span>Hire Me</span></a
-          >
-          <button
-            class="mobile-menu-btn"
-            id="mobileMenuBtn"
-            aria-label="Toggle menu"
-          >
-            <span></span><span></span><span></span>
-          </button>
-        </div>
-      </div>
-    </nav>
-
-    <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-menu" id="mobileMenu">
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#contact" class="mobile-cta">Hire Me</a></li>
-      </ul>
+<section id="design-styles" class="section design-styles" aria-labelledby="design-styles-title">
+ <div class="container">
+  <div class="section-heading"><div><p class="eyebrow">The design library</p><h2 id="design-styles-title">Find your <em>visual direction.</em></h2></div><p>Explore 16 visual references. Choose a direction you love and bring it into your project brief.</p></div>
+  <div class="design-studio">
+   <div class="direction-stage" id="direction-stage">
+    <div class="direction-toolbar"><span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-design"></use></svg> A closer look</span><button type="button" data-case-study="design-reference-dialog">Full preview <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-expand"></use></svg></button></div>
+    <div id="direction-panel" role="tabpanel" aria-labelledby="direction-minimal-product" aria-describedby="direction-description" tabindex="0">
+     <div class="reference-browser">
+      <div class="reference-browser-bar"><span class="reference-dots" aria-hidden="true"><i></i><i></i><i></i></span><span id="direction-browser-title">Minimal product</span><span>Design reference</span></div>
+      <button id="direction-preview" type="button" class="direction-preview" data-case-study="design-reference-dialog" aria-label="View Minimal product full design">
+       <img id="direction-image" src="assets/style-minimal-product.webp" alt="Minimal product website design reference featuring a sculptural scooter product page" width="1024" height="1974" loading="lazy">
+       <span class="reference-open">Explore full design <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-expand"></use></svg></span>
+      </button>
+     </div>
+     <div class="direction-stage-caption"><span>Visual inspiration</span><span id="direction-swatches" class="direction-swatches" aria-hidden="true"><i style="background:#e7ebe6"></i><i style="background:#a8bdb7"></i><i style="background:#d6dfe5"></i></span></div>
     </div>
+   </div>
+   <div class="direction-picker">
+    <p class="direction-picker-label">Choose a direction <span>13 references</span></p>
+    <div id="direction-options" class="direction-tabs" role="tablist" aria-label="Website design directions" aria-orientation="horizontal"><button id="direction-minimal-product" class="direction-tab" type="button" role="tab" aria-selected="true" aria-controls="direction-panel" tabindex="0" data-slug="minimal-product" data-title="Minimal product" data-mood="Airy · sculptural · refined" data-description="Airy spacing, sculpted sections, and product-first imagery. A considered direction for a product that deserves the spotlight." data-uses="Product websites|E-commerce|Consumer brands" data-palette="#e7ebe6|#a8bdb7|#d6dfe5" data-width="1024" data-height="1974">
+   <img src="assets/style-minimal-product-thumb.webp" alt="" width="200" height="150" loading="lazy">
+   <span class="direction-tab-label"><strong>Minimal product</strong><small>Airy · sculptural · refined</small></span>
+ </button><button id="direction-cinematic-fashion" class="direction-tab" type="button" role="tab" aria-selected="false" aria-controls="direction-panel" tabindex="-1" data-slug="cinematic-fashion" data-title="Cinematic fashion" data-mood="Immersive · bold · atmospheric" data-description="Art-directed photography, dramatic typography, and expressive collection pages that build an immersive brand world." data-uses="Fashion labels|Lifestyle brands|Collection launches" data-palette="#698493|#c4d4dc|#1f3848" data-width="736" data-height="1286">
+   <img src="assets/style-cinematic-fashion-thumb.webp" alt="" width="200" height="150" loading="lazy">
+   <span class="direction-tab-label"><strong>Cinematic fashion</strong><small>Immersive · bold · atmospheric</small></span>
+ </button><button id="direction-expressive-type" class="direction-tab" type="button" role="tab" aria-selected="false" aria-controls="direction-panel" tabindex="-1" data-slug="expressive-type" data-title="Expressive typography" data-mood="Graphic · energetic · confident" data-description="Oversized headlines, electric accents, and energetic graphic treatments for a brand with a confident point of view." data-uses="Creative agencies|Brand websites|Portfolios" data-palette="#e4e7ee|#1746ed|#c9d2ed" data-width="736" data-height="1402">
+   <img src="assets/style-expressive-type-thumb.webp" alt="" width="200" height="150" loading="lazy">
+   <span class="direction-tab-label"><strong>Expressive typography</strong><small>Graphic · energetic · confident</small></span>
+ </button><button id="direction-monochrome-editorial" class="direction-tab" type="button" role="tab" aria-selected="false" aria-controls="direction-panel" tabindex="-1" data-slug="monochrome-editorial" data-title="Monochrome editorial" data-mood="Raw · textured · independent" data-description="High-contrast layouts, textured imagery, and an independent magazine feel for culture-driven brands and stories." data-uses="Editorial sites|Independent studios|Culture &amp; fashion" data-palette="#e3e3de|#a6a6a0|#393b39" data-width="736" data-height="1472">
+   <img src="assets/style-monochrome-editorial-thumb.webp" alt="" width="200" height="150" loading="lazy">
+   <span class="direction-tab-label"><strong>Monochrome editorial</strong><small>Raw · textured · independent</small></span>
+ </button><button id="direction-futuristic-3d" class="direction-tab" type="button" role="tab" aria-selected="false" aria-controls="direction-panel" tabindex="-1" data-slug="futuristic-3d" data-title="Futuristic 3D" data-mood="Dimensional · cinematic · dark" data-description="Dark scenes, metallic typography, and dimensional visuals for technology with a bold story to tell." data-uses="Technology|Space &amp; science|Gaming" data-palette="#c8ccc8|#737d78|#252d28" data-width="736" data-height="1420">
+   <img src="assets/style-futuristic-3d-thumb.webp" alt="" width="200" height="150" loading="lazy">
+   <span class="direction-tab-label"><strong>Futuristic 3D</strong><small>Dimensional · cinematic · dark</small></span>
+ </button><button id="direction-fintech-saas" class="direction-tab" type="button" role="tab" aria-selected="false" aria-controls="direction-panel" tabindex="-1" data-slug="fintech-saas" data-title="Fintech &amp; SaaS" data-mood="Luminous · precise · polished" data-description="Luminous gradients, polished interfaces, and clear product storytelling for digital services and ambitious platforms." data-uses="SaaS products|Fintech|Digital platforms" data-palette="#c3dcea|#2d8cc4|#133a55" data-width="1200" data-height="2577">
+   <img src="assets/style-fintech-saas-thumb.webp" alt="" width="200" height="150" loading="lazy">
+   <span class="direction-tab-label"><strong>Fintech &amp; SaaS</strong><small>Luminous · precise · polished</small></span>
+ </button>
+<button id="direction-cosmic-crypto" class="direction-tab" type="button" role="tab" aria-selected="false" aria-controls="direction-panel" tabindex="-1" data-slug="cosmic-crypto" data-title="Cosmic crypto" data-mood="Dark · atmospheric · polished" data-description="Space-inspired lighting, floating interface cards, and restrained metallic details for a sophisticated digital-product presence." data-uses="Web3 products|Fintech|Product launches" data-palette="#d3ccc8|#8c7b70|#1b1d24" data-width="736" data-height="1324">
+ <img src="assets/style-cosmic-crypto-thumb.webp" alt="" width="200" height="150" loading="lazy">
+ <span class="direction-tab-label"><strong>Cosmic crypto</strong><small>Dark · atmospheric · polished</small></span>
+</button>
+<button id="direction-immersive-nature" class="direction-tab" type="button" role="tab" aria-selected="false" aria-controls="direction-panel" tabindex="-1" data-slug="immersive-nature" data-title="Immersive nature" data-mood="Fluid · cinematic · exploratory" data-description="Layered ocean imagery, luminous details, and immersive storytelling that turn a visit into an exploration." data-uses="Travel &amp; tourism|Nature &amp; science|Experiential brands" data-palette="#bed9e0|#2c93c3|#102c45" data-width="736" data-height="1307">
+ <img src="assets/style-immersive-nature-thumb.webp" alt="" width="200" height="150" loading="lazy">
+ <span class="direction-tab-label"><strong>Immersive nature</strong><small>Fluid · cinematic · exploratory</small></span>
+</button>
+<button id="direction-art-led-storytelling" class="direction-tab" type="button" role="tab" aria-selected="false" aria-controls="direction-panel" tabindex="-1" data-slug="art-led-storytelling" data-title="Art-led storytelling" data-mood="Expressive · layered · cultural" data-description="Artful collage, rich color, and unconventional composition for stories that deserve a distinctive editorial treatment." data-uses="Arts &amp; culture|Music projects|Creative portfolios" data-palette="#e7c4b6|#a12f24|#173c35" data-width="736" data-height="1308">
+ <img src="assets/style-art-led-storytelling-thumb.webp" alt="" width="200" height="150" loading="lazy">
+ <span class="direction-tab-label"><strong>Art-led storytelling</strong><small>Expressive · layered · cultural</small></span>
+</button>
+<button id="direction-playful-3d" class="direction-tab" type="button" role="tab" aria-selected="false" aria-controls="direction-panel" tabindex="-1" data-slug="playful-3d" data-title="Playful 3D" data-mood="Colorful · dimensional · fun" data-description="Candy-colored 3D objects, glossy typography, and playful interface details for an energetic, memorable brand." data-uses="Creator platforms|Design tools|Entertainment" data-palette="#c8edfa|#df6de3|#c8ef4a" data-width="736" data-height="1104">
+ <img src="assets/style-playful-3d-thumb.webp" alt="" width="200" height="150" loading="lazy">
+ <span class="direction-tab-label"><strong>Playful 3D</strong><small>Colorful · dimensional · fun</small></span>
+</button>
+<button id="direction-lifestyle-collage" class="direction-tab" type="button" role="tab" aria-selected="false" aria-controls="direction-panel" tabindex="-1" data-slug="lifestyle-collage" data-title="Lifestyle collage" data-mood="Tactile · expressive · editorial" data-description="Pastel colors, cut-out photography, handwritten marks, and bold headlines give a collection a personal, scrapbook-like identity." data-uses="Fashion &amp; lifestyle|E-commerce|Creative brands" data-palette="#e8e3d7|#adcddb|#e79ab0" data-width="1200" data-height="2133">
+ <img src="assets/style-lifestyle-collage-thumb.webp" alt="" width="200" height="150" loading="lazy">
+ <span class="direction-tab-label"><strong>Lifestyle collage</strong><small>Tactile · expressive · editorial</small></span>
+</button>
+<button id="direction-streetwear-skate" class="direction-tab" type="button" role="tab" aria-selected="false" aria-controls="direction-panel" tabindex="-1" data-slug="streetwear-skate" data-title="Streetwear &amp; skate" data-mood="Urban · graphic · rebellious" data-description="Street photography, oversized condensed type, torn-paper edges, and vibrant accents for brands rooted in culture and movement." data-uses="Streetwear|Skate &amp; sports|Culture-led brands" data-palette="#d4e4bd|#9ad846|#253d32" data-width="736" data-height="920">
+ <img src="assets/style-streetwear-skate-thumb.webp" alt="" width="200" height="150" loading="lazy">
+ <span class="direction-tab-label"><strong>Streetwear &amp; skate</strong><small>Urban · graphic · rebellious</small></span>
+</button>
+<button id="direction-handcrafted-portfolio" class="direction-tab" type="button" role="tab" aria-selected="false" aria-controls="direction-panel" tabindex="-1" data-slug="handcrafted-portfolio" data-title="Handcrafted portfolio" data-mood="Personal · tactile · playful" data-description="Notebook textures, handwritten notes, taped photographs, and thoughtful details create a warm, personal introduction to your work." data-uses="Personal portfolios|Product designers|Freelancers" data-palette="#edece5|#f6cd50|#a0ccbb" data-width="1000" data-height="1500">
+ <img src="assets/style-handcrafted-portfolio-thumb.webp" alt="" width="200" height="150" loading="lazy">
+ <span class="direction-tab-label"><strong>Handcrafted portfolio</strong><small>Personal · tactile · playful</small></span>
+</button><button id="direction-neo-brutalism" class="direction-tab" type="button" role="tab" aria-selected="false" aria-controls="direction-panel" tabindex="-1" data-slug="neo-brutalism" data-title="Neo-brutalism" data-mood="Bold · retro · playful" data-description="Oversized typography, strong outlines, colorful panels, and illustrated details create a bold, playful brand presence." data-uses="Creative studios|Lifestyle brands|Campaign pages" data-palette="#f1d8b3|#ec83a3|#ed752e" data-width="736" data-height="552"><img src="assets/style-neo-brutalism-thumb.webp" alt="" width="200" height="150" loading="lazy"><span class="direction-tab-label"><strong>Neo-brutalism</strong><small>Bold · retro · playful</small></span></button><button id="direction-experimental-agency" class="direction-tab" type="button" role="tab" aria-selected="false" aria-controls="direction-panel" tabindex="-1" data-slug="experimental-agency" data-title="Experimental agency" data-mood="Metallic · expressive · structured" data-description="An editorial grid, chrome imagery, grainy gradients, and strong typography give creative services an experimental identity." data-uses="Creative agencies|Design studios|Digital marketing" data-palette="#e7e4de|#d98eaa|#242424" data-width="612" data-height="1200"><img src="assets/style-experimental-agency-thumb.webp" alt="" width="200" height="150" loading="lazy"><span class="direction-tab-label"><strong>Experimental agency</strong><small>Metallic · expressive · structured</small></span></button><button id="direction-minimal-healthcare" class="direction-tab" type="button" role="tab" aria-selected="false" aria-controls="direction-panel" tabindex="-1" data-slug="minimal-healthcare" data-title="Minimal healthcare" data-mood="Airy · precise · sculptural" data-description="Clean white layouts, sculptural image framing, fine dividers, and restrained navigation present complex services clearly." data-uses="Healthcare|Robotics &amp; automation|Corporate websites" data-palette="#ffffff|#cbd6db|#202322" data-width="736" data-height="1472"><img src="assets/style-minimal-healthcare-thumb.webp" alt="" width="200" height="150" loading="lazy"><span class="direction-tab-label"><strong>Minimal healthcare</strong><small>Airy · precise · sculptural</small></span></button></div>
+   </div>
+   <div class="direction-footer">
+    <div class="direction-copy"><h3 id="direction-title">Minimal product</h3><p id="direction-description">Airy spacing, sculpted sections, and product-first imagery. A considered direction for a product that deserves the spotlight.</p><div id="direction-use-cases" class="direction-use-cases"><span>Product websites</span><span>E-commerce</span><span>Consumer brands</span></div></div>
+    <a id="use-design-direction" class="button button-dark" href="#assessment">Use this direction <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-down-right"></use></svg></a>
+   </div>
+  </div>
+  <p class="direction-reference-note">A collection of visual inspiration to help shape your design preferences.</p>
+ </div>
+</section>
 
-    <main id="top">
-      <!-- ===== HERO ===== -->
-      <section class="hero" id="hero">
-        <div class="hero-bg-glow"></div>
-        <div class="hero-inner">
-          <div class="hero-copy">
-            <div class="eyebrow reveal">
-              <span class="eyebrow-dot"></span>Open to opportunities
-            </div>
-            <h1 class="visually-hidden">
-              Iltifat Nath — Front-End Developer &amp; UI/UX Designer crafting
-              expressive, animation-rich React interfaces
-            </h1>
-
-            <div
-              class="code-window reveal"
-              id="codeWindow"
-              role="img"
-              aria-hidden="true"
-            >
-              <div class="code-titlebar">
-                <div class="code-dots">
-                  <span></span><span></span><span></span>
-                </div>
-                <div class="code-filename">developer.ts</div>
-                <div class="code-lines-count">1× — Iltifat</div>
-              </div>
-              <div class="code-body">
-                <pre
-                  class="code-pre"
-                ><code id="typedCode"></code><span class="code-caret" id="codeCaret"></span></pre>
-              </div>
-            </div>
-
-            <p class="hero-description reveal">
-              An artist first — I build front-end interfaces that feel designed,
-              not assembled: glassmorphic surfaces, GSAP-driven motion, and the
-              odd easter egg for the curious to find.
-            </p>
-
-            <div class="hero-ctas reveal">
-              <a href="#work" class="btn-primary" data-cursor="magnetic"
-                ><span><i class="fas fa-arrow-down"></i> View my work</span></a
-              >
-              <a href="#contact" class="btn-secondary" data-cursor="magnetic"
-                ><span>Get in touch</span></a
-              >
-            </div>
-
-            <div class="hero-stats reveal">
-              <div class="stat">
-                <span class="stat-value" data-count="5" data-suffix="+">0</span
-                ><span class="stat-label">Years of craft</span>
-              </div>
-              <div class="stat">
-                <span class="stat-value" data-count="15" data-suffix="+">0</span
-                ><span class="stat-label">Projects shipped</span>
-              </div>
-              <div class="stat">
-                <span class="stat-value" data-count="4" data-suffix="">0</span
-                ><span class="stat-label">Companies</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="scroll-cue reveal" aria-hidden="true">
-          <span>Scroll</span>
-          <div class="scroll-cue-line"><i></i></div>
-        </div>
-      </section>
-
-      <!-- ===== MARQUEE ===== -->
-      <section class="marquee-section" aria-label="Technologies I work with">
-        <div class="marquee-row" data-dir="left">
-          <div class="marquee-track">
-            <span class="marquee-item">React.js</span
-            ><span class="marquee-item">Next.js</span
-            ><span class="marquee-item">TypeScript</span
-            ><span class="marquee-item">Java</span
-            ><span class="marquee-item">Tailwind CSS</span
-            ><span class="marquee-item">GSAP</span
-            ><span class="marquee-item">React Three Fiber</span>
-            <span class="marquee-item">React.js</span
-            ><span class="marquee-item">Next.js</span
-            ><span class="marquee-item">TypeScript</span
-            ><span class="marquee-item">Java</span
-            ><span class="marquee-item">Tailwind CSS</span
-            ><span class="marquee-item">GSAP</span
-            ><span class="marquee-item">React Three Fiber</span>
-          </div>
-        </div>
-        <div class="marquee-row" data-dir="right">
-          <div class="marquee-track">
-            <span class="marquee-item outline">Figma</span
-            ><span class="marquee-item outline">Blender</span
-            ><span class="marquee-item outline">After Effects</span
-            ><span class="marquee-item outline">Canva</span
-            ><span class="marquee-item outline">Digital Calligraphy</span
-            ><span class="marquee-item outline">Chrome DevTools</span>
-            <span class="marquee-item outline">Figma</span
-            ><span class="marquee-item outline">Blender</span
-            ><span class="marquee-item outline">After Effects</span
-            ><span class="marquee-item outline">Canva</span
-            ><span class="marquee-item outline">Digital Calligraphy</span
-            ><span class="marquee-item outline">Chrome DevTools</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===== ABOUT ===== -->
-      <section id="about" class="section">
-        <div class="section-header">
-          <span class="section-label reveal"
-            ><i class="fas fa-terminal"></i> Who I Am</span
-          >
-          <h2 class="section-title reveal">About&nbsp;me</h2>
-        </div>
-
-        <div class="about-grid">
-          <div class="about-text-col">
-            <p class="about-lead reveal">
-              For over <strong>5 years</strong>, I've been an artist first —
-              translating that into beautiful, highly creative front-end work. I
-              move between striking minimalism, magazine-style layouts, and
-              esoteric UIs with celestial imagery, dramatic contrast, and Y2K
-              chrome.
-            </p>
-            <p class="reveal">
-              I don't just build websites; I design immersive experiences,
-              usually with a few clever easter eggs hidden for the curious.
-              Glassmorphic surfaces, parallax scrolling, on-hover effects like
-              dissolving type or elements that "explode" on scroll — sometimes a
-              cinematic video or a bit of sound to match the mood.
-            </p>
-            <p class="reveal">
-              From AI-powered interfaces at <strong>NIELIT</strong>, to creative
-              sites at <strong>SKIE</strong> and <strong>PW</strong>, to a
-              UK-based hybrid internship at <strong>Apexure</strong> — my focus
-              stays on beautiful UI/UX, smooth performance, and fully responsive
-              pages, with a personal touch AI can't replicate.
-            </p>
-
-            <div class="about-highlights">
-              <div class="highlight reveal">
-                <div class="highlight-icon">
-                  <i class="fas fa-graduation-cap"></i>
-                </div>
-                <div>
-                  <h4>BSc IT · Final Year</h4>
-                  <p>Cluster University, J&amp;K</p>
-                </div>
-              </div>
-              <div class="highlight reveal">
-                <div class="highlight-icon">
-                  <i class="fas fa-location-dot"></i>
-                </div>
-                <div>
-                  <h4>Based in</h4>
-                  <p>Srinagar, Jammu &amp; Kashmir</p>
-                </div>
-              </div>
-              <div class="highlight reveal">
-                <div class="highlight-icon"><i class="fab fa-react"></i></div>
-                <div>
-                  <h4>Specialization</h4>
-                  <p>React, R3F &amp; motion design</p>
-                </div>
-              </div>
-              <div class="highlight reveal">
-                <div class="highlight-icon">
-                  <i class="fas fa-wand-magic-sparkles"></i>
-                </div>
-                <div>
-                  <h4>Secondary focus</h4>
-                  <p>3D, GSAP &amp; glassmorphic UI</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="about-visual reveal">
-            <div class="mood-reveal">
-              <div class="mood-stage" id="moodStage">
-                <div class="mood-stage-bg mood-glass" id="moodStageBg"></div>
-                <span class="mood-stage-label" id="moodStageLabel"
-                  >Glassmorphic</span
-                >
-              </div>
-              <ul class="mood-list" id="moodList">
-                <li data-mood="glass" tabindex="0" class="active">
-                  Glassmorphic
-                </li>
-                <li data-mood="y2k" tabindex="0">Y2K Chrome</li>
-                <li data-mood="celestial" tabindex="0">Celestial</li>
-                <li data-mood="minimal" tabindex="0">Minimalism</li>
-                <li data-mood="magazine" tabindex="0">Magazine Layouts</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===== SKILLS ===== -->
-      <section id="skills" class="section">
-        <div class="section-header">
-          <span class="section-label reveal"
-            ><i class="fas fa-layer-group"></i> What I Know</span
-          >
-          <h2 class="section-title reveal">Skills &amp;&nbsp;expertise</h2>
-        </div>
-
-        <div class="skills-grid">
-          <div class="skill-card reveal">
-            <div class="skill-card-head">
-              <div class="skill-icon"><i class="fab fa-react"></i></div>
-              <h3>Development</h3>
-            </div>
-            <div class="skill-tags">
-              <span>React.js</span><span>Next.js</span><span>Java</span
-              ><span>TypeScript</span><span>Tailwind CSS</span
-              ><span>Chrome DevTools</span>
-            </div>
-          </div>
-          <div class="skill-card reveal">
-            <div class="skill-card-head">
-              <div class="skill-icon"><i class="fas fa-cube"></i></div>
-              <h3>Motion, 3D &amp; Visual Design</h3>
-            </div>
-            <div class="skill-tags">
-              <span>GSAP</span><span>React Three Fiber (R3F)</span
-              ><span>Blender</span><span>After Effects</span><span>Figma</span
-              ><span>Canva</span><span>Digital Calligraphy</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===== EXPERIENCE ===== -->
-      <section id="experience" class="section">
-        <div class="section-header">
-          <span class="section-label reveal"
-            ><i class="fas fa-timeline"></i> My Journey</span
-          >
-          <h2 class="section-title reveal">Experience &amp;&nbsp;education</h2>
-        </div>
-
-        <div class="timeline">
-          <div class="timeline-line" aria-hidden="true"></div>
-
-          <div class="timeline-item reveal">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card">
-              <div class="timeline-badge">Dec 2025 — Jan 2026 · Internship</div>
-              <h3>Artificial Intelligence Engineering Intern</h3>
-              <p class="company">
-                NIELIT — National Institute of Electronics &amp; IT
-              </p>
-              <ul>
-                <li>
-                  Designed and developed interactive, responsive
-                  data-visualization interfaces and dynamic dashboards using
-                  Python, Matplotlib, Pandas, and NumPy
-                </li>
-                <li>
-                  Created UI/UX components for AI-powered applications, focused
-                  on clean, modern design with seamless micro-interactions
-                </li>
-                <li>
-                  Built and optimized ML and deep-learning models (including
-                  ANNs and CNNs) using Scikit-learn, TensorFlow, and PyTorch,
-                  with performance and front-end integration in mind
-                </li>
-                <li>
-                  Applied computer-vision techniques with OpenCV for image
-                  processing and object detection
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="timeline-item reveal">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card">
-              <div class="timeline-badge">Mar 2025 — Dec 2025 · Internship</div>
-              <h3>Front-End Developer &amp; Designing (Intern)</h3>
-              <p class="company">SKIE</p>
-              <ul>
-                <li>
-                  Developed user-friendly, fully functional websites for
-                  multiple educational institutions
-                </li>
-                <li>
-                  Designed and built short-term promotional websites and landing
-                  pages for specific events and campaigns
-                </li>
-                <li>
-                  Handled digital branding — custom marketing logos and
-                  eye-catching advertisements to drive engagement
-                </li>
-                <li>
-                  Blended technical development with artistic design so every
-                  deliverable looked professional and visually beautiful
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="timeline-item reveal">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card">
-              <div class="timeline-badge">Feb 2024 — Jan 2025 · Internship</div>
-              <h3>Front-End Developer &amp; Data Analysis (Intern)</h3>
-              <p class="company">PW</p>
-              <ul>
-                <li>
-                  Designed and developed visually stunning, creative hero pages
-                  to immediately capture user attention
-                </li>
-                <li>
-                  Created custom charts and graphical representations to make
-                  complex data analysis visually appealing and easy to
-                  understand
-                </li>
-                <li>
-                  Designed high-quality visual assets, graphics, and layouts for
-                  digital advertisement purposes
-                </li>
-                <li>
-                  Built full websites from scratch, balancing artistic visual
-                  design with functional layout
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="timeline-item reveal">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card">
-              <div class="timeline-badge">Aug 2023 — Oct 2023 · Internship</div>
-              <h3>Front-End Developer &amp; UI/UX Designing Intern</h3>
-              <p class="company">Apexure — United Kingdom, London (hybrid)</p>
-              <ul>
-                <li>
-                  Developed 6+ responsive websites using HTML, CSS, JavaScript,
-                  and Tailwind CSS — spanning playful, cartoony layouts, a
-                  newspaper-style site, and a professional health insurance
-                  platform
-                </li>
-                <li>
-                  Designed custom 3D assets in Blender and built highly
-                  engaging, interactive web components
-                </li>
-                <li>
-                  Brought static Figma designs to life with dynamic button and
-                  hover animations
-                </li>
-                <li>
-                  Optimized all creative designs for fast load times and
-                  flawless performance across mobile devices
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="timeline-item reveal">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card">
-              <div class="timeline-badge">2023 — 2026 · Education</div>
-              <h3>BSc in Information Technology</h3>
-              <p class="company">Cluster University, Jammu &amp; Kashmir</p>
-              <ul>
-                <li>
-                  Final year — Data Structures, Algorithms, Web Development,
-                  Software Engineering
-                </li>
-                <li>9× first-place district-level wins, 1 state-level win</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===== WORK ===== -->
-      <section id="work" class="section">
-        <div class="section-header">
-          <span class="section-label reveal"
-            ><i class="fas fa-diagram-project"></i> My Work</span
-          >
-          <h2 class="section-title reveal">Featured&nbsp;projects</h2>
-        </div>
-
-        <div class="work-grid">
-          <article
-            class="work-card reveal"
-            style="--card-a: 110, 231, 183; --card-b: 179, 157, 255"
-          >
-            <div class="work-visual"><i class="fas fa-heart-pulse"></i></div>
-            <div class="work-body">
-              <div class="work-top">
-                <h3>Health Insurance Website</h3>
-                <div class="work-links">
-                  <a
-                    href="https://health-insurance-dusky.vercel.app/"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="Live site"
-                    data-cursor="magnetic"
-                    ><i class="fas fa-arrow-up-right-from-square"></i></a
-                  ><a
-                    href="https://github.com/iltifatyousuf/health-insurance"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="Code"
-                    data-cursor="magnetic"
-                    ><i class="fab fa-github"></i
-                  ></a>
-                </div>
-              </div>
-              <p>
-                A professional health-insurance platform with a bold hero,
-                custom charts, and a fully responsive layout — built for
-                Apexure.
-              </p>
-              <div class="work-tags">
-                <span>React</span><span>Tailwind CSS</span><span>GSAP</span>
-              </div>
-            </div>
-          </article>
-
-          <article
-            class="work-card reveal"
-            style="--card-a: 255, 122, 69; --card-b: 110, 231, 183"
-          >
-            <div class="work-visual"><i class="fas fa-globe"></i></div>
-            <div class="work-body">
-              <div class="work-top">
-                <h3>ForVera</h3>
-                <div class="work-links">
-                  <a
-                    href="https://forvera.vercel.app/"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="Live site"
-                    data-cursor="magnetic"
-                    ><i class="fas fa-arrow-up-right-from-square"></i></a
-                  ><a
-                    href="https://github.com/iltifatyousuf/Forvera"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="Code"
-                    data-cursor="magnetic"
-                    ><i class="fab fa-github"></i
-                  ></a>
-                </div>
-              </div>
-              <p>
-                A full site built from scratch balancing artistic visual design
-                with a functional, data-driven layout.
-              </p>
-              <div class="work-tags">
-                <span>Next.js</span><span>React</span><span>Tailwind CSS</span>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <h3 class="playground-heading reveal">UI/UX Playground</h3>
-        <p class="playground-subtitle reveal">
-          Smaller experiments — the kind of hands-on practice that builds the
-          interactions above.
-        </p>
-
-        <div class="playground-grid">
-          <a
-            href="https://github.com/iltifatyousuf"
-            target="_blank"
-            rel="noopener"
-            class="playground-item reveal"
-            data-cursor="magnetic"
-            ><span>Netflix Clone</span
-            ><i class="fas fa-arrow-up-right-from-square"></i
-          ></a>
-          <a
-            href="https://purple-slider.vercel.app/"
-            target="_blank"
-            rel="noopener"
-            class="playground-item reveal"
-            data-cursor="magnetic"
-            ><span>Purple Slider</span
-            ><i class="fas fa-arrow-up-right-from-square"></i
-          ></a>
-          <a
-            href="https://button-seven-indol.vercel.app/"
-            target="_blank"
-            rel="noopener"
-            class="playground-item reveal"
-            data-cursor="magnetic"
-            ><span>Neo Morphic Button</span
-            ><i class="fas fa-arrow-up-right-from-square"></i
-          ></a>
-          <a
-            href="https://cursor-iis2.vercel.app/"
-            target="_blank"
-            rel="noopener"
-            class="playground-item reveal"
-            data-cursor="magnetic"
-            ><span>Cursor</span><i class="fas fa-arrow-up-right-from-square"></i
-          ></a>
-          <a
-            href="https://github.com/iltifatyousuf"
-            target="_blank"
-            rel="noopener"
-            class="playground-item reveal"
-            data-cursor="magnetic"
-            ><span>Simple Form</span
-            ><i class="fas fa-arrow-up-right-from-square"></i
-          ></a>
-          <a
-            href="https://cursor-tau-seven.vercel.app/"
-            target="_blank"
-            rel="noopener"
-            class="playground-item reveal"
-            data-cursor="magnetic"
-            ><span>Hover</span><i class="fas fa-arrow-up-right-from-square"></i
-          ></a>
-          <a
-            href="https://accordion-one-black.vercel.app/"
-            target="_blank"
-            rel="noopener"
-            class="playground-item reveal"
-            data-cursor="magnetic"
-            ><span>Accordion</span
-            ><i class="fas fa-arrow-up-right-from-square"></i
-          ></a>
-          <a
-            href="https://aurora-ebon-iota.vercel.app/"
-            target="_blank"
-            rel="noopener"
-            class="playground-item reveal"
-            data-cursor="magnetic"
-            ><span>Aurora</span><i class="fas fa-arrow-up-right-from-square"></i
-          ></a>
-          <a
-            href="https://grid-design-rho.vercel.app/"
-            target="_blank"
-            rel="noopener"
-            class="playground-item reveal"
-            data-cursor="magnetic"
-            ><span>Grid Design</span
-            ><i class="fas fa-arrow-up-right-from-square"></i
-          ></a>
-          <a
-            href="https://increement-decreement.vercel.app/"
-            target="_blank"
-            rel="noopener"
-            class="playground-item reveal"
-            data-cursor="magnetic"
-            ><span>Increment &amp; Decrement</span
-            ><i class="fas fa-arrow-up-right-from-square"></i
-          ></a>
-          <a
-            href="https://glassmorphic-hover.vercel.app/"
-            target="_blank"
-            rel="noopener"
-            class="playground-item reveal"
-            data-cursor="magnetic"
-            ><span>Glassmorphic Hover</span
-            ><i class="fas fa-arrow-up-right-from-square"></i
-          ></a>
-          <a
-            href="https://hamburger-menu-inky.vercel.app/"
-            target="_blank"
-            rel="noopener"
-            class="playground-item reveal"
-            data-cursor="magnetic"
-            ><span>Hamburger Menu</span
-            ><i class="fas fa-arrow-up-right-from-square"></i
-          ></a>
-          <a
-            href="https://navbar-eight-chi.vercel.app/"
-            target="_blank"
-            rel="noopener"
-            class="playground-item reveal"
-            data-cursor="magnetic"
-            ><span>NavBar</span><i class="fas fa-arrow-up-right-from-square"></i
-          ></a>
-        </div>
-      </section>
-
-      <!-- ===== CONTACT ===== -->
-      <section id="contact" class="section contact-section">
-        <div class="contact-cta reveal">
-          <h2>Have a project in mind?<br />Let's ship it.</h2>
-        </div>
-
-        <div class="contact-grid">
-          <div class="contact-info reveal">
-            <a
-              class="contact-method"
-              href="mailto:iltifaatyousuf@gmail.com"
-              data-cursor="magnetic"
-            >
-              <div class="icon"><i class="fas fa-envelope"></i></div>
-              <div>
-                <h4>Email</h4>
-                <p>iltifaatyousuf@gmail.com</p>
-              </div>
-            </a>
-            <a
-              class="contact-method"
-              href="tel:+919682648455"
-              data-cursor="magnetic"
-            >
-              <div class="icon"><i class="fas fa-phone"></i></div>
-              <div>
-                <h4>Phone</h4>
-                <p>+91 96826 48455</p>
-              </div>
-            </a>
-            <div class="contact-method">
-              <div class="icon"><i class="fas fa-location-dot"></i></div>
-              <div>
-                <h4>Location</h4>
-                <p>Srinagar, Jammu &amp; Kashmir, India</p>
-              </div>
-            </div>
-            <a
-              class="contact-method"
-              href="https://www.linkedin.com/in/iltifat-yousuf-4010ba1a6"
-              target="_blank"
-              rel="noopener"
-              data-cursor="magnetic"
-            >
-              <div class="icon"><i class="fab fa-linkedin-in"></i></div>
-              <div>
-                <h4>LinkedIn</h4>
-                <p>iltifat-yousuf</p>
-              </div>
-            </a>
-            <a
-              class="contact-method"
-              href="https://github.com/iltifatyousuf"
-              target="_blank"
-              rel="noopener"
-              data-cursor="magnetic"
-            >
-              <div class="icon"><i class="fab fa-github"></i></div>
-              <div>
-                <h4>GitHub</h4>
-                <p>iltifatyousuf</p>
-              </div>
-            </a>
-          </div>
-
-          <form class="contact-form reveal" id="contactForm">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="name">Full name</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="John Doe"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="email">Email address</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="john@company.com"
-                  required
-                />
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="subject">Subject</label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                placeholder="Project inquiry"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="5"
-                placeholder="Tell me about your project or opportunity..."
-                required
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              class="btn-primary"
-              id="submitBtn"
-              data-cursor="magnetic"
-            >
-              <span id="btnText"
-                ><i class="fas fa-paper-plane"></i> Send message</span
-              >
-              <span id="btnLoading" class="btn-spinner" hidden></span>
-            </button>
-            <p class="form-note" id="formNote" role="status"></p>
-          </form>
-        </div>
-      </section>
-    </main>
-
-    <!-- ===== FOOTER ===== -->
-    <footer class="footer">
-      <div class="footer-inner">
-        <a href="#top" class="logo" data-cursor="view"
-          ><span class="logo-bracket">&lt;</span>iltifat<span
-            class="logo-bracket"
-            >/&gt;</span
-          ></a
-        >
-        <div class="social-links">
-          <a
-            href="mailto:iltifaatyousuf@gmail.com"
-            class="social-link"
-            title="Email"
-            data-cursor="magnetic"
-            ><i class="fas fa-envelope"></i
-          ></a>
-          <a
-            href="https://github.com/iltifatyousuf"
-            target="_blank"
-            rel="noopener"
-            class="social-link"
-            title="GitHub"
-            data-cursor="magnetic"
-            ><i class="fab fa-github"></i
-          ></a>
-          <a
-            href="https://www.linkedin.com/in/iltifat-yousuf-4010ba1a6"
-            target="_blank"
-            rel="noopener"
-            class="social-link"
-            title="LinkedIn"
-            data-cursor="magnetic"
-            ><i class="fab fa-linkedin-in"></i
-          ></a>
-        </div>
-        <p class="footer-fine">
-          © 2026 Iltifat Nath. Built with precision &amp; passion.
-        </p>
-        <p class="footer-fine subtle">
-          Available for full-time roles &amp; freelance collaboration
-        </p>
+<section id="work" class="work-section section">
+<div class="container">
+  <div class="section-heading"><div><p class="eyebrow">Project collection</p><h2>Ideas brought <em>to life.</em></h2></div><p>Websites, interface experiments, and creative builds. Explore each project or take a look at the code.</p></div>
+  <div class="case-study-shortcuts"><span>Explore a case study</span><button class="case-study-shortcut" type="button" data-case-study="flux-study">FLUX <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></button><button class="case-study-shortcut" type="button" data-case-study="forvera-study">ForVera <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></button></div>
+  <h3 class="collection-heading">Websites &amp; applications</h3>
+  <div class="project-grid">
+<article class="project">
+      <a class="project-image forvera" href="https://exodia-web.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Visit website for Exodia">
+        <div class="browser-frame"><div class="browser-bar"><span>•••</span><span>exodia-web.vercel.app</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></div>
+          <img src="assets/exodia.webp" alt="Exodia website preview" width="1200" height="833" loading="lazy" decoding="async">
+        </div><span class="preview-link">Visit website <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></span>
+      </a>
+      <div class="project-info"><div><p class="project-category">Cybersecurity · Product website</p><h3>Exodia</h3></div><a class="source-link" href="https://github.com/iltifatyousuf/exodia" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-github"></use></svg> Source code</a></div>
+      <p class="project-description">A product website introducing an AI-powered cybersecurity platform, its architecture, and industry solutions.</p>
+      <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+    </article>
+<article class="project">
+      <a class="project-image forvera" href="https://flux-gules.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Visit website for FLUX">
+        <div class="browser-frame"><div class="browser-bar"><span>•••</span><span>flux-gules.vercel.app</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></div>
+          <img src="assets/flux.webp" alt="FLUX website preview" width="1200" height="833" loading="lazy" decoding="async">
+        </div><span class="preview-link">Visit website <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></span>
+      </a>
+      <div class="project-info"><div><p class="project-category">File intelligence · Web application</p><h3>FLUX</h3></div><a class="source-link" href="https://github.com/iltifatyousuf/flux" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-github"></use></svg> Source code</a></div>
+      <p class="project-description">A file-intelligence workspace with tools for working with documents, images, and other file formats.</p>
+      <div class="tags"><span>React</span><span>TypeScript</span><span>Express</span></div>
+    <button class="case-study-link" type="button" data-case-study="flux-study">Read case study <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></button></article>
+<article class="project">
+      <a class="project-image forvera" href="https://iron-market-alpha.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Visit website for Iron Market">
+        <div class="browser-frame"><div class="browser-bar"><span>•••</span><span>iron-market-alpha.vercel.app</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></div>
+          <img src="assets/iron-market.webp" alt="Iron Market website preview" width="1200" height="833" loading="lazy" decoding="async">
+        </div><span class="preview-link">Visit website <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></span>
+      </a>
+      <div class="project-info"><div><p class="project-category">Equipment · Marketplace</p><h3>Iron Market</h3></div><a class="source-link" href="https://github.com/iltifatyousuf/iron-market" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-github"></use></svg> Source code</a></div>
+      <p class="project-description">A heavy-equipment marketplace featuring machinery discovery, brand exploration, and equipment comparisons.</p>
+      <div class="tags"><span>Next.js</span><span>TypeScript</span></div>
+    </article>
+<article class="project">
+      <a class="project-image forvera" href="https://github.com/iltifatyousuf/DEIT" target="_blank" rel="noopener noreferrer" aria-label="View source code for DEIT">
+        <div class="browser-frame"><div class="browser-bar"><span>•••</span><span>GitHub source preview</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></div>
+          <img src="assets/deit.webp" alt="DEIT GitHub source preview" width="1200" height="833" loading="lazy" decoding="async">
+        </div><span class="preview-link">View source code <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></span>
+      </a>
+      <div class="project-info"><div><p class="project-category">Security &amp; technology · Business website</p><h3>DEIT</h3></div><a class="source-link" href="https://github.com/iltifatyousuf/DEIT" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-github"></use></svg> Source code</a></div>
+      <p class="project-description">A business website presenting integrated security solutions, technology services, industries, and projects.</p><p class="preview-note">Source preview · Live deployment unavailable</p>
+      <div class="tags"><span>HTML</span><span>Tailwind CSS</span><span>JavaScript</span></div>
+    </article>
+<article class="project">
+      <a class="project-image forvera" href="https://github.com/iltifatyousuf/timerich-portal" target="_blank" rel="noopener noreferrer" aria-label="View source code for Time Rich">
+        <div class="browser-frame"><div class="browser-bar"><span>•••</span><span>GitHub source preview</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></div>
+          <img src="assets/timerich-portal.webp" alt="Time Rich GitHub source preview" width="1200" height="833" loading="lazy" decoding="async">
+        </div><span class="preview-link">View source code <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></span>
+      </a>
+      <div class="project-info"><div><p class="project-category">AI education · Learning portal</p><h3>Time Rich</h3></div><a class="source-link" href="https://github.com/iltifatyousuf/timerich-portal" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-github"></use></svg> Source code</a></div>
+      <p class="project-description">An AI education portal presenting structured courses, agent training, learning resources, and a student dashboard.</p><p class="preview-note">Source preview · Live deployment unavailable</p>
+      <div class="tags"><span>HTML</span><span>Tailwind CSS</span><span>JavaScript</span></div>
+    </article>
+<article class="project"><a class="project-image forvera" href="https://forvera.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Visit ForVera live website"><div class="browser-frame"><div class="browser-bar"><span>•••</span><span>forvera.vercel.app</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></div><img src="assets/forvera.webp" alt="ForVera wellness website homepage" width="1440" height="1000" loading="lazy"></div><span class="preview-link">Visit website <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></span></a><div class="project-info"><div><p class="project-category">Wellness · Web development</p><h3>ForVera</h3></div><a class="source-link" href="https://github.com/iltifatyousuf/Forvera" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-github"></use></svg> Source code</a></div><p class="project-description">A wellness website balancing expressive visual design with a clear, functional layout.</p><div class="tags"><span>HTML</span><span>Tailwind CSS</span><span>JavaScript</span></div><button class="case-study-link" type="button" data-case-study="forvera-study">Read case study <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></button></article>
+<article class="project"><a class="project-image insurance" href="https://health-insurance-dusky.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Visit Health Insurance live website"><div class="browser-frame"><div class="browser-bar"><span>•••</span><span>health-insurance-dusky.vercel.app</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></div><img src="assets/health-insurance.webp" alt="Health Insurance website homepage" width="1440" height="1000" loading="lazy"></div><span class="preview-link">Visit website <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></span></a><div class="project-info"><div><p class="project-category">Insurance · Front-end development</p><h3>Health Insurance</h3></div><a class="source-link" href="https://github.com/iltifatyousuf/health-insurance" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-github"></use></svg> Source code</a></div><p class="project-description">A responsive insurance platform with a bold introduction and custom charts, built for Apexure.</p><div class="tags"><span>React</span><span>Tailwind CSS</span><span>GSAP</span></div></article>
+<article class="project">
+      <a class="project-image forvera" href="https://cursor-iis2.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Visit Netflix Clone live demo">
+        <div class="browser-frame"><div class="browser-bar"><span>•••</span><span>cursor-iis2.vercel.app</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></div>
+          <img src="assets/netflix-clone.webp" alt="Netflix Clone project preview" width="1200" height="833" loading="lazy" decoding="async">
+        </div><span class="preview-link">Visit website <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></span>
+      </a>
+      <div class="project-info"><div><p class="project-category">Streaming · Website recreation</p><h3>Netflix Clone</h3></div>
+        <a class="source-link" href="https://github.com/iltifatyousuf/netflix-clone" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-github"></use></svg> Source code</a>
       </div>
-    </footer>
+      <p class="project-description">A recreation of the Netflix landing page, with featured content, membership prompts, and responsive sections.</p>
+      <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+    </article>
+  </div>
+  <h3 class="collection-heading experiments-heading">Interface experiments</h3>
+  <div class="project-grid">
+<article class="project">
+      <a class="project-image insurance" href="https://purple-slider.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Visit Purple Slider live demo">
+        <div class="browser-frame"><div class="browser-bar"><span>•••</span><span>purple-slider.vercel.app</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></div>
+          <img src="assets/purple-slider.webp" alt="Purple Slider project preview" width="1200" height="833" loading="lazy" decoding="async">
+        </div><span class="preview-link">Visit website <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></span>
+      </a>
+      <div class="project-info"><div><p class="project-category">Interaction · Slider</p><h3>Purple Slider</h3></div>
+        <a class="source-link" href="https://github.com/iltifatyousuf/purple-slider" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-github"></use></svg> Source code</a>
+      </div>
+      <p class="project-description">An editorial slider experiment exploring layered typography, transitions, and a purple visual palette.</p>
+      <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+    </article>
+<article class="project">
+      <a class="project-image forvera" href="https://button-seven-indol.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Visit Neomorphic Button live demo">
+        <div class="browser-frame"><div class="browser-bar"><span>•••</span><span>button-seven-indol.vercel.app</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></div>
+          <img src="assets/button.webp" alt="Neomorphic Button project preview" width="1200" height="833" loading="lazy" decoding="async">
+        </div><span class="preview-link">Visit website <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></span>
+      </a>
+      <div class="project-info"><div><p class="project-category">Interaction · Button design</p><h3>Neomorphic Button</h3></div>
+        <a class="source-link" href="https://github.com/iltifatyousuf/button" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-github"></use></svg> Source code</a>
+      </div>
+      <p class="project-description">A soft-surface button study using subtle highlights and shadows to create depth.</p>
+      <div class="tags"><span>HTML</span><span>CSS</span></div>
+    </article>
+<article class="project">
+      <a class="project-image insurance" href="https://cursor-tau-seven.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Visit Custom Cursor live demo">
+        <div class="browser-frame"><div class="browser-bar"><span>•••</span><span>cursor-tau-seven.vercel.app</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></div>
+          <img src="assets/cursor.webp" alt="Custom Cursor project preview" width="1200" height="833" loading="lazy" decoding="async">
+        </div><span class="preview-link">Visit website <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></span>
+      </a>
+      <div class="project-info"><div><p class="project-category">Interaction · Cursor</p><h3>Custom Cursor</h3></div>
+        <a class="source-link" href="https://github.com/iltifatyousuf/cursor" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-github"></use></svg> Source code</a>
+      </div>
+      <p class="project-description">A custom cursor experiment paired with a minimal navigation layout.</p>
+      <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+    </article>
+<article class="project">
+      <a class="project-image forvera" href="https://simple-form-bice.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Visit Simple Form live demo">
+        <div class="browser-frame"><div class="browser-bar"><span>•••</span><span>simple-form-bice.vercel.app</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></div>
+          <img src="assets/simple-form.webp" alt="Simple Form project preview" width="1200" height="833" loading="lazy" decoding="async">
+        </div><span class="preview-link">Visit website <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></span>
+      </a>
+      <div class="project-info"><div><p class="project-category">Interface · Forms</p><h3>Simple Form</h3></div>
+        <a class="source-link" href="https://github.com/iltifatyousuf/simple-form" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-github"></use></svg> Source code</a>
+      </div>
+      <p class="project-description">A registration interface for Apexure, combining a clear form layout with a branded introduction.</p>
+      <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+    </article>
+<article class="project">
+      <a class="project-image insurance" href="https://hover-pink.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Visit Hover Effects live demo">
+        <div class="browser-frame"><div class="browser-bar"><span>•••</span><span>hover-pink.vercel.app</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></div>
+          <img src="assets/hover.webp" alt="Hover Effects project preview" width="1200" height="833" loading="lazy" decoding="async">
+        </div><span class="preview-link">Visit website <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></span>
+      </a>
+      <div class="project-info"><div><p class="project-category">Interaction · Typography</p><h3>Hover Effects</h3></div>
+        <a class="source-link" href="https://github.com/iltifatyousuf/Hover" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-github"></use></svg> Source code</a>
+      </div>
+      <p class="project-description">A typography experiment exploring how hover interactions can add movement to a simple interface.</p>
+      <div class="tags"><span>HTML</span><span>CSS</span></div>
+    </article>
+<article class="project">
+      <a class="project-image forvera" href="https://accordion-one-black.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Visit Accordion live demo">
+        <div class="browser-frame"><div class="browser-bar"><span>•••</span><span>accordion-one-black.vercel.app</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></div>
+          <img src="assets/accordion.webp" alt="Accordion project preview" width="1200" height="833" loading="lazy" decoding="async">
+        </div><span class="preview-link">Visit website <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></span>
+      </a>
+      <div class="project-info"><div><p class="project-category">Interface · Accordion</p><h3>Accordion</h3></div>
+        <a class="source-link" href="https://github.com/iltifatyousuf/accordion" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-github"></use></svg> Source code</a>
+      </div>
+      <p class="project-description">A compact FAQ interface that reveals answers while keeping the page easy to scan.</p>
+      <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+    </article>
+<article class="project">
+      <a class="project-image insurance" href="https://aurora-ebon-iota.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Visit Aurora live demo">
+        <div class="browser-frame"><div class="browser-bar"><span>•••</span><span>aurora-ebon-iota.vercel.app</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></div>
+          <img src="assets/aurora.webp" alt="Aurora project preview" width="1200" height="833" loading="lazy" decoding="async">
+        </div><span class="preview-link">Visit website <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></span>
+      </a>
+      <div class="project-info"><div><p class="project-category">Visual design · Gradients</p><h3>Aurora</h3></div>
+        <a class="source-link" href="https://github.com/iltifatyousuf/aurora" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-github"></use></svg> Source code</a>
+      </div>
+      <p class="project-description">An atmospheric background experiment with soft, aurora-inspired color and light.</p>
+      <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+    </article>
+<article class="project">
+      <a class="project-image forvera" href="https://grid-design-rho.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Visit Grid Design live demo">
+        <div class="browser-frame"><div class="browser-bar"><span>•••</span><span>grid-design-rho.vercel.app</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></div>
+          <img src="assets/grid-design.webp" alt="Grid Design project preview" width="1200" height="833" loading="lazy" decoding="async">
+        </div><span class="preview-link">Visit website <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></span>
+      </a>
+      <div class="project-info"><div><p class="project-category">Visual design · Grid</p><h3>Grid Design</h3></div>
+        <a class="source-link" href="https://github.com/iltifatyousuf/grid-design" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-github"></use></svg> Source code</a>
+      </div>
+      <p class="project-description">A geometric background study built around fine grid lines and a spectrum of color.</p>
+      <div class="tags"><span>HTML</span><span>CSS</span></div>
+    </article>
+<article class="project">
+      <a class="project-image insurance" href="https://increement-decreement.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Visit Increment &amp; Decrement live demo">
+        <div class="browser-frame"><div class="browser-bar"><span>•••</span><span>increement-decreement.vercel.app</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></div>
+          <img src="assets/increement-decreement.webp" alt="Increment &amp; Decrement project preview" width="1200" height="833" loading="lazy" decoding="async">
+        </div><span class="preview-link">Visit website <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></span>
+      </a>
+      <div class="project-info"><div><p class="project-category">Interaction · Counter</p><h3>Increment &amp; Decrement</h3></div>
+        <a class="source-link" href="https://github.com/iltifatyousuf/increement-decreement" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-github"></use></svg> Source code</a>
+      </div>
+      <p class="project-description">A focused counter interface with increment, decrement, and reset controls.</p>
+      <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+    </article>
+<article class="project">
+      <a class="project-image forvera" href="https://glassmorphic-hover.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Visit Glassmorphic Hover live demo">
+        <div class="browser-frame"><div class="browser-bar"><span>•••</span><span>glassmorphic-hover.vercel.app</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></div>
+          <img src="assets/glassmorphic-hover.webp" alt="Glassmorphic Hover project preview" width="1200" height="833" loading="lazy" decoding="async">
+        </div><span class="preview-link">Visit website <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></span>
+      </a>
+      <div class="project-info"><div><p class="project-category">Visual design · Glassmorphism</p><h3>Glassmorphic Hover</h3></div>
+        <a class="source-link" href="https://github.com/iltifatyousuf/Glassmorphic-hover" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-github"></use></svg> Source code</a>
+      </div>
+      <p class="project-description">A hover experiment exploring translucent surfaces, subtle borders, and lighting.</p>
+      <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+    </article>
+<article class="project">
+      <a class="project-image insurance" href="https://hamburger-menu-inky.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Visit Hamburger Menu live demo">
+        <div class="browser-frame"><div class="browser-bar"><span>•••</span><span>hamburger-menu-inky.vercel.app</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></div>
+          <img src="assets/hamburger-menu.webp" alt="Hamburger Menu project preview" width="1200" height="833" loading="lazy" decoding="async">
+        </div><span class="preview-link">Visit website <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></span>
+      </a>
+      <div class="project-info"><div><p class="project-category">Navigation · Mobile menu</p><h3>Hamburger Menu</h3></div>
+        <a class="source-link" href="https://github.com/iltifatyousuf/hamburger-menu" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-github"></use></svg> Source code</a>
+      </div>
+      <p class="project-description">A responsive navigation experiment with a compact menu treatment for smaller screens.</p>
+      <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+    </article>
+<article class="project">
+      <a class="project-image forvera" href="https://navbar-eight-chi.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Visit Responsive Navbar live demo">
+        <div class="browser-frame"><div class="browser-bar"><span>•••</span><span>navbar-eight-chi.vercel.app</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></div>
+          <img src="assets/navbar.webp" alt="Responsive Navbar project preview" width="1200" height="833" loading="lazy" decoding="async">
+        </div><span class="preview-link">Visit website <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></span>
+      </a>
+      <div class="project-info"><div><p class="project-category">Navigation · Interface</p><h3>Responsive Navbar</h3></div>
+        <a class="source-link" href="https://github.com/iltifatyousuf/Navbar" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-github"></use></svg> Source code</a>
+      </div>
+      <p class="project-description">A rounded navigation bar with a minimal layout and softly elevated surface.</p>
+      <div class="tags"><span>HTML</span><span>CSS</span></div>
+    </article>
+<article class="project">
+      <a class="project-image forvera" href="https://github.com/iltifatyousuf/iltifat.vscode/tree/main/slider" target="_blank" rel="noopener noreferrer" aria-label="View source code for Image Slider">
+        <div class="browser-frame"><div class="browser-bar"><span>•••</span><span>GitHub source preview</span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></div>
+          <img src="assets/image-slider.webp" alt="Image Slider GitHub source preview" width="1200" height="833" loading="lazy" decoding="async">
+        </div><span class="preview-link">View source code <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></span>
+      </a>
+      <div class="project-info"><div><p class="project-category">Interaction · Image slider</p><h3>Image Slider</h3></div><a class="source-link" href="https://github.com/iltifatyousuf/iltifat.vscode/tree/main/slider" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-github"></use></svg> Source code</a></div>
+      <p class="project-description">An image-slider experiment with dedicated styles, JavaScript interactions, and image assets.</p><p class="preview-note">Source preview · Explore the code on GitHub</p>
+      <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+    </article>
+  </div>
 
-    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
-      <i class="fas fa-arrow-up"></i>
-    </button>
+</div>
+</section>
+<section id="about" class="section container about-section">
+  <div class="about-intro"><p class="eyebrow">A little about me</p><h2>An artist’s eye.<br>A developer’s <em>mind.</em></h2><p>I’m a full stack developer and UI/UX designer based in Srinagar, Jammu &amp; Kashmir. Five years of artistic practice inform the way I work with typography, composition, and detail.</p><p>My experience spans educational websites, landing pages, data visualization, and AI-powered interfaces at NIELIT, SKIE, PW, and Apexure.</p><a class="text-link" href="https://www.linkedin.com/in/iltifat-yousuf-4010ba1a6" target="_blank" rel="noopener noreferrer">More about my journey <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></a></div>
+  <div class="expertise" id="skills"><p class="eyebrow">What I bring</p><article><svg class="icon expertise-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-code"></use></svg><div><h3>Full stack development</h3><p>Websites and applications that bring together responsive interfaces, application logic, and backend services.</p><div class="tags"><span>Angular</span><span>TypeScript</span><span>React</span><span>Next.js</span><span>JavaScript</span><span>HTML</span><span>CSS</span><span>Tailwind CSS</span><span>Java</span><span>Chrome DevTools</span></div></div></article><article><svg class="icon expertise-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-server"></use></svg><div><h3>Backend &amp; Zoho development</h3><p>Backend development with Zoho Catalyst, connecting application interfaces with backend services.</p><div class="tags"><span>Zoho</span><span>Zoho Catalyst</span><span>Backend development</span></div></div></article><article><svg class="icon expertise-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-design"></use></svg><div><h3>UI/UX &amp; visual design</h3><p>Considered layouts, visual identities, and interfaces that are easy to understand.</p><div class="tags"><span>Figma</span><span>Canva</span><span>Digital calligraphy</span></div></div></article><article><svg class="icon expertise-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-layers"></use></svg><div><h3>Motion &amp; creative development</h3><p>Purposeful interactions and 3D details that bring personality to the experience.</p><div class="tags"><span>GSAP</span><span>React Three Fiber</span><span>Blender</span><span>After Effects</span></div></div></article></div>
+</section>
+<section id="experience" class="section experience-section"><div class="container"><div class="section-heading"><div><p class="eyebrow">Experience &amp; education</p><h2>Learning by <em>building.</em></h2></div><p>Hands-on experience across design, development, and emerging technology.</p></div><div class="experience-list"><article class="experience-row"><div class="experience-date">Dec 2025 — Jan 2026 · Internship</div><div><h3>Artificial Intelligence Engineering Intern</h3><p class="company">NIELIT — National Institute of Electronics &amp; IT</p><details><summary>View responsibilities <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-plus"></use></svg></summary><ul><li>Designed and developed interactive, responsive data-visualization interfaces and dynamic dashboards using Python, Matplotlib, Pandas, and NumPy</li><li>Created UI/UX components for AI-powered applications, focused on clean, modern design with seamless micro-interactions</li><li>Built and optimized ML and deep-learning models (including ANNs and CNNs) using Scikit-learn, TensorFlow, and PyTorch, with performance and front-end integration in mind</li><li>Applied computer-vision techniques with OpenCV for image processing and object detection</li></ul></details></div></article><article class="experience-row"><div class="experience-date">Mar 2025 — Dec 2025 · Internship</div><div><h3>Front-End Developer &amp; Designing (Intern)</h3><p class="company">SKIE</p><details><summary>View responsibilities <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-plus"></use></svg></summary><ul><li>Developed user-friendly, fully functional websites for multiple educational institutions</li><li>Designed and built short-term promotional websites and landing pages for specific events and campaigns</li><li>Handled digital branding — custom marketing logos and eye-catching advertisements to drive engagement</li><li>Blended technical development with artistic design so every deliverable looked professional and visually beautiful</li></ul></details></div></article><article class="experience-row"><div class="experience-date">Feb 2024 — Jan 2025 · Internship</div><div><h3>Front-End Developer &amp; Data Analysis (Intern)</h3><p class="company">PW</p><details><summary>View responsibilities <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-plus"></use></svg></summary><ul><li>Designed and developed visually stunning, creative hero pages to immediately capture user attention</li><li>Created custom charts and graphical representations to make complex data analysis visually appealing and easy to understand</li><li>Designed high-quality visual assets, graphics, and layouts for digital advertisement purposes</li><li>Built full websites from scratch, balancing artistic visual design with functional layout</li></ul></details></div></article><article class="experience-row"><div class="experience-date">Aug 2023 — Oct 2023 · Internship</div><div><h3>Front-End Developer &amp; UI/UX Designing Intern</h3><p class="company">Apexure — United Kingdom, London (hybrid)</p><details><summary>View responsibilities <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-plus"></use></svg></summary><ul><li>Developed 6+ responsive websites using HTML, CSS, JavaScript, and Tailwind CSS — spanning playful, cartoony layouts, a newspaper-style site, and a professional health insurance platform</li><li>Designed custom 3D assets in Blender and built highly engaging, interactive web components</li><li>Brought static Figma designs to life with dynamic button and hover animations</li><li>Optimized all creative designs for fast load times and flawless performance across mobile devices</li></ul></details></div></article><article class="experience-row"><div class="experience-date">2023 — 2026 · Education</div><div><h3>BSc in Information Technology</h3><p class="company">Cluster University, Jammu &amp; Kashmir</p><details><summary>View responsibilities <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-plus"></use></svg></summary><ul><li>Final year — Data Structures, Algorithms, Web Development, Software Engineering</li><li>9× first-place district-level wins, 1 state-level win</li></ul></details></div></article></div></div></section>
 
-    <script src="script.js"></script>
-  </body>
+<section id="assessment" class="section assessment-section">
+  <div class="container">
+    <div class="section-heading"><div><p class="eyebrow">Quick project assessment</p><h2>Tell me about <em>your project.</em></h2></div><p>Choose a few details to put together a project brief we can discuss.</p></div>
+    <div class="assessment-layout">
+      <form id="assessment-form" class="assessment-form" action="https://formspree.io/f/xppdzkyd" method="post">
+        <div class="assessment-form-heading"><h3>What are we building?</h3><span>Five quick choices</span></div>
+        <div class="assessment-fields"><div class="assessment-field">
+  <label for="websiteType">Website type</label>
+  <div class="select-wrap"><select id="websiteType" name="websiteType" required><option value="" disabled selected>Choose an option</option><option value="Landing page">Landing page</option><option value="Business or company website">Business or company website</option><option value="E-commerce store">E-commerce store</option><option value="Portfolio or personal website">Portfolio or personal website</option><option value="SaaS or web application">SaaS or web application</option><option value="Dashboard or internal tool">Dashboard or internal tool</option><option value="Education or learning platform">Education or learning platform</option><option value="Booking or service website">Booking or service website</option><option value="Blog or publication">Blog or publication</option><option value="Custom project">Custom project</option><option value="I’d like your recommendation">I’d like your recommendation</option></select><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-chevron-down"></use></svg></div>
+</div><div class="assessment-field">
+  <label for="designStyle">UI/UX design style</label>
+  <div class="select-wrap"><select id="designStyle" name="designStyle" required><option value="" disabled selected>Choose an option</option><option value="Minimal &amp; premium">Minimal &amp; premium</option><option value="Modern &amp; clean">Modern &amp; clean</option><option value="Corporate &amp; professional">Corporate &amp; professional</option><option value="Bold &amp; expressive">Bold &amp; expressive</option><option value="Editorial &amp; typography-led">Editorial &amp; typography-led</option><option value="Playful &amp; colorful">Playful &amp; colorful</option><option value="Dark &amp; immersive">Dark &amp; immersive</option><option value="Glassmorphism &amp; gradients">Glassmorphism &amp; gradients</option><option value="Follow my existing brand">Follow my existing brand</option><option value="I’d like your recommendation">I’d like your recommendation</option><option value="Minimal product">Minimal product</option><option value="Cinematic fashion">Cinematic fashion</option><option value="Expressive typography">Expressive typography</option><option value="Monochrome editorial">Monochrome editorial</option><option value="Futuristic 3D">Futuristic 3D</option><option value="Fintech &amp; SaaS">Fintech &amp; SaaS</option><option value="Cosmic crypto">Cosmic crypto</option><option value="Immersive nature">Immersive nature</option><option value="Art-led storytelling">Art-led storytelling</option><option value="Playful 3D">Playful 3D</option><option value="Lifestyle collage">Lifestyle collage</option><option value="Streetwear &amp; skate">Streetwear &amp; skate</option><option value="Handcrafted portfolio">Handcrafted portfolio</option><option value="Neo-brutalism">Neo-brutalism</option><option value="Experimental agency">Experimental agency</option><option value="Minimal healthcare">Minimal healthcare</option></select><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-chevron-down"></use></svg></div>
+</div><div class="assessment-field">
+  <label for="developmentScope">Development scope</label>
+  <div class="select-wrap"><select id="developmentScope" name="developmentScope" required><option value="" disabled selected>Choose an option</option><option value="Frontend only">Frontend only</option><option value="Backend only">Backend only</option><option value="Both — full stack">Both — full stack</option><option value="UI/UX design only">UI/UX design only</option><option value="Design &amp; full stack development">Design &amp; full stack development</option><option value="Zoho / Catalyst backend">Zoho / Catalyst backend</option><option value="Improve an existing website">Improve an existing website</option><option value="I’d like your recommendation">I’d like your recommendation</option></select><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-chevron-down"></use></svg></div>
+</div><div class="assessment-field">
+  <label for="timeline">When would you like it ready?</label>
+  <div class="select-wrap"><select id="timeline" name="timeline" required><option value="" disabled selected>Choose an option</option><option value="3–5 days">3–5 days</option><option value="7 days">7 days</option><option value="14 days">14 days</option><option value="21 days">21 days</option><option value="30 days">30 days</option><option value="45 days">45 days</option><option value="60+ days">60+ days</option><option value="Flexible — let’s plan together">Flexible — let’s plan together</option></select><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-chevron-down"></use></svg></div>
+</div><div class="assessment-field field-wide">
+  <label for="budget">Expected budget (INR)</label>
+  <div class="select-wrap"><select id="budget" name="budget" required><option value="" disabled selected>Choose an option</option><option value="Under ₹10,000">Under ₹10,000</option><option value="₹10,000–₹25,000">₹10,000–₹25,000</option><option value="₹25,000–₹50,000">₹25,000–₹50,000</option><option value="₹50,000–₹1,00,000">₹50,000–₹1,00,000</option><option value="₹1,00,000–₹2,00,000">₹1,00,000–₹2,00,000</option><option value="₹2,00,000+">₹2,00,000+</option><option value="Let’s discuss the budget">Let’s discuss the budget</option></select><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-chevron-down"></use></svg></div>
+</div>
+          <div class="assessment-field field-wide"><label for="projectNotes">Anything else? <span class="optional-label">Optional</span></label><textarea id="projectNotes" name="projectNotes" rows="3" maxlength="2000" placeholder="Your idea, must-have features, or a website you love…"></textarea></div>
+        </div>
+        <div class="assessment-form-footer"><p>You can choose a recommendation if you’re still exploring.</p><button class="button button-dark" type="submit">Create my brief <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></button></div>
+      </form>
+      <aside class="assessment-summary" aria-labelledby="brief-heading">
+        <div class="brief-heading"><span class="brief-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-layers"></use></svg></span><h3 id="brief-heading">Your project <em>brief.</em></h3></div>
+        <div class="brief-progress-label"><span id="assessment-progress-text">0 of 5 details selected</span><span id="assessment-progress-percent" aria-hidden="true">0%</span></div>
+        <progress id="assessment-progress" value="0" max="5" aria-label="Project details selected"></progress>
+        <dl class="brief-details"><div><dt>Website type</dt><dd id="brief-websiteType">Not selected</dd></div><div><dt>UI/UX design style</dt><dd id="brief-designStyle">Not selected</dd></div><div><dt>Development scope</dt><dd id="brief-developmentScope">Not selected</dd></div><div><dt>Timeline</dt><dd id="brief-timeline">Not selected</dd></div><div><dt>Expected budget (INR)</dt><dd id="brief-budget">Not selected</dd></div></dl>
+        <div id="brief-actions" class="brief-actions" hidden>
+          <fieldset class="brief-contact">
+            <legend>Where can I reach you?</legend>
+            <label for="client-name">Your name</label><input id="client-name" name="name" type="text" form="assessment-form" autocomplete="name" maxlength="100" required disabled>
+            <label for="client-email">Email address</label><input id="client-email" name="email" type="email" form="assessment-form" autocomplete="email" maxlength="254" required disabled>
+          </fieldset>
+          <button id="send-enquiry" class="button brief-email" type="submit" name="intent" value="send" form="assessment-form">Send enquiry <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></button>
+          <a id="assessment-email" class="brief-email-alternative" href="mailto:iltifaatyousuf@gmail.com">Email project brief <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-mail"></use></svg></a>
+          <a id="assessment-whatsapp" class="brief-email-alternative brief-whatsapp-alternative" href="https://wa.me/919682648455?text=Hi%20Iltifat%2C%20I%E2%80%99d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer">Send brief on WhatsApp <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg></a>
+          <button id="copy-brief" type="button"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-copy"></use></svg> Copy brief</button>
+        </div>
+        <p class="brief-note" id="brief-note">Your choices help shape our conversation. Scope, timing, and pricing can be discussed together. Your name, email, and brief are sent through Formspree when you submit.</p>
+        <p id="assessment-status" class="assessment-status" role="status"></p>
+        <textarea id="brief-copy-fallback" class="brief-copy-fallback" aria-label="Project brief to copy" readonly hidden></textarea>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section contact-section"><div class="container"><div class="contact-top"><div><p class="eyebrow">Have something in mind?</p><h2>Let’s make<br>something <em>considered.</em></h2></div><p>Have a project or opportunity to share? I’d love to hear what you’re working on.</p></div><a class="email-link" href="mailto:iltifaatyousuf@gmail.com"><span class="email-address"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-mail"></use></svg> iltifaatyousuf@gmail.com</span> <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></a><div class="contact-bottom"><span class="contact-location"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-map-pin"></use></svg> Srinagar, Jammu &amp; Kashmir, India</span><div><a class="whatsapp-contact" href="https://wa.me/919682648455?text=Hi%20Iltifat%2C%20I%E2%80%99d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-whatsapp"></use></svg> WhatsApp <span>+91 96826 48455</span></a><a href="tel:+919682648455"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-phone"></use></svg> Call me</a><a href="https://www.linkedin.com/in/iltifat-yousuf-4010ba1a6" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-linkedin"></use></svg> LinkedIn</a><a href="https://github.com/iltifatyousuf" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-github"></use></svg> GitHub</a><button class="copy-email" type="button"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-copy"></use></svg> <span>Copy email</span></button></div></div><p id="copy-status" class="copy-status" role="status"></p></div></section>
+</main>
+
+<dialog id="flux-study" class="case-study-dialog" aria-labelledby="flux-study-title">
+  <form method="dialog" class="case-study-close-form"><button class="case-study-close" aria-label="Close FLUX case study" autofocus><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-close"></use></svg></button></form>
+  <div class="case-study-content">
+    <p class="eyebrow">Full stack application · File intelligence</p>
+    <h2 id="flux-study-title">FLUX <em>case study.</em></h2>
+    <p class="case-study-intro">A file workspace that brings uploads, processing tools, and downloadable results into one interface.</p>
+    <div class="case-study-views"><figure class="case-study-desktop"><img src="assets/flux.webp" alt="FLUX desktop interface" width="1200" height="833" loading="lazy"><figcaption>Desktop experience</figcaption></figure><figure class="case-study-phone"><img src="assets/flux-mobile.webp" alt="FLUX mobile interface" width="390" height="844" loading="lazy"><figcaption>Mobile experience</figcaption></figure></div>
+    <div class="case-study-sections"><div><h3>Project focus</h3><p>Make a varied collection of file tools accessible through a consistent workflow: choose a tool, upload a file, follow its progress, and retrieve the output.</p></div><div><h3>Implementation</h3><p>A React/Vite interface connects to an Express API through typed OpenAPI contracts. The repository separates the workspace, API routes, processing engine, and shared types.</p></div><div class="case-study-deliverables"><h3>What was built</h3><ul><li>Drag-and-drop and file-picker upload interfaces.</li><li>Processing states for queued, processing, completed, and failed jobs.</li><li>Download endpoints for completed results.</li><li>A responsive landing page and workspace, with dashboard activity summaries.</li></ul></div></div>
+    <div class="case-study-footer"><div class="tags"><span>React</span><span>TypeScript</span><span>Vite</span><span>Express</span><span>OpenAPI</span></div><div><a class="text-link" href="https://flux-gules.vercel.app/" target="_blank" rel="noopener noreferrer">Explore the live site <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></a><a class="text-link" href="https://github.com/iltifatyousuf/flux" target="_blank" rel="noopener noreferrer">View the source <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-github"></use></svg></a></div></div>
+  </div>
+</dialog>
+<dialog id="forvera-study" class="case-study-dialog" aria-labelledby="forvera-study-title">
+  <form method="dialog" class="case-study-close-form"><button class="case-study-close" aria-label="Close ForVera case study" autofocus><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-close"></use></svg></button></form>
+  <div class="case-study-content">
+    <p class="eyebrow">Website design &amp; development · Wellness</p>
+    <h2 id="forvera-study-title">ForVera <em>case study.</em></h2>
+    <p class="case-study-intro">A wellness product catalogue with an immersive visual identity and a direct route to product enquiries.</p>
+    <div class="case-study-views"><figure class="case-study-desktop"><img src="assets/forvera.webp" alt="ForVera desktop interface" width="1200" height="833" loading="lazy"><figcaption>Desktop experience</figcaption></figure><figure class="case-study-phone"><img src="assets/forvera-mobile.webp" alt="ForVera mobile interface" width="390" height="844" loading="lazy"><figcaption>Mobile experience</figcaption></figure></div>
+    <div class="case-study-sections"><div><h3>Project focus</h3><p>Help visitors explore a wellness collection, understand product information, and start a conversation with the distributor.</p></div><div><h3>Implementation</h3><p>The site combines an HTML and Tailwind CSS layout with JavaScript product interactions and Swiper-based browsing. Typography, imagery, and a green palette establish a consistent wellness identity.</p></div><div class="case-study-deliverables"><h3>What was built</h3><ul><li>Product collection browsing and quick-view product details.</li><li>A wellness journey section and answers to common questions.</li><li>Direct WhatsApp enquiries and a contact section.</li><li>Desktop and mobile layouts, including compact navigation.</li></ul></div></div>
+    <div class="case-study-footer"><div class="tags"><span>HTML</span><span>Tailwind CSS</span><span>JavaScript</span><span>Swiper</span></div><div><a class="text-link" href="https://forvera.vercel.app/" target="_blank" rel="noopener noreferrer">Explore the live site <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up-right"></use></svg></a><a class="text-link" href="https://github.com/iltifatyousuf/Forvera" target="_blank" rel="noopener noreferrer">View the source <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-github"></use></svg></a></div></div>
+  </div>
+</dialog>
+
+<dialog id="design-reference-dialog" class="case-study-dialog design-reference-dialog" aria-labelledby="design-reference-title">
+ <form method="dialog" class="case-study-close-form"><button class="case-study-close" aria-label="Close design reference" autofocus><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-close"></use></svg></button></form>
+ <div class="design-reference-content"><p class="eyebrow">Visual inspiration</p><h2 id="design-reference-title">Minimal product</h2><img id="design-reference-full" src="assets/style-minimal-product.webp" alt="Full Minimal product website design reference" width="1024" height="1974" loading="lazy"></div>
+</dialog>
+
+<footer class="footer container"><a class="wordmark" href="#top" aria-label="Back to top">iltifat<span>.</span></a><p>© <span id="year">2026</span> Iltifat Nath</p><a href="#top">Back to top <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><use href="#icon-arrow-up"></use></svg></a></footer>
+<script src="script.js?v=ffa8d1c931"></script>
+</body>
 </html>
