@@ -25,7 +25,7 @@
       closeMenu();
     }
   });
-  window.matchMedia("(min-width: 741px)").addEventListener("change", event => {
+  window.matchMedia("(min-width: 1001px)").addEventListener("change", event => {
     if (event.matches) closeMenu();
   });
 
